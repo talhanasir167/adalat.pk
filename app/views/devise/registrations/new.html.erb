@@ -1,29 +1,71 @@
-<h2>Sign up</h2>
+<div class="p-5" >
+  <%= link_to '<i class="bi bi-arrow-return-left"></i> Back'.html_safe, :back, class: "btn btn-info" %>
+  <div class="register h-100 d-flex flex-column align-items-center justify-content-center p-4 max-extended-form-width m-auto shadow" >
+    <h2 class="fw-bolder">Sign up for free</h2>
+    <p>Or <%= link_to "Sign in to your existing account", new_session_path(resource_name), class: 'text-success text-decoration-none'%></p>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :first_name, class: 'form-label text-muted' %><br />
+          <%= f.text_field :first_name, autofocus: true, placeholder: 'Adv.', required: true, class: 'form-control mb-3' %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :middle_name, class: 'form-label text-muted' %><em class="text-muted"> (optional)</em><br />
+          <%= f.text_field :middle_name, placeholder: 'Imran', class: 'form-control mb-3' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :last_name, class: 'form-label text-muted' %><em class="text-muted"> (optional)</em><br />
+          <%= f.text_field :last_name, placeholder: 'Zulfiqar', class: 'form-control mb-3' %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :email, class: 'form-label text-muted' %><br />
+          <%= f.email_field :email, autocomplete: "email", placeholder: 'example@gmail.com', required: true, class: 'form-control mb-3' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :qualification, class: 'form-label text-muted' %><br />
+          <%= f.text_field :qualification, placeholder: 'LLM', required: true, class: 'form-control mb-3' %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :experience, class: 'form-label text-muted' %><br />
+          <%= f.text_field :experience, placeholder: '5 Years', required: true, class: 'form-control mb-3' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :description, class: 'form-label text-muted' %>
+        <%= f.text_area(:description, rows: '3', class: "form-control mb-3", required: true, placeholder: "Tell us about yourself") %>
+      </div>
+
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :password, class: 'form-label text-muted' %>
+          <% if @minimum_password_length %>
+          <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password", required: true, placeholder: 'aD34g', class: 'form-control mb-3' %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :password_confirmation, class: 'form-label text-muted' %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true, placeholder: 'aD34g', class: 'form-control mb-3' %>
+        </div>
+      </div>
+
+      <div class="actions my-2 text-center">
+        <%= f.submit "Sign up", class: 'btn btn-success' %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
