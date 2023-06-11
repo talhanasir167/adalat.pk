@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :qualification, :experience, :description, :approved, :email, presence: true
+  validates :first_name, :qualification, :experience, :description, :email, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   ROLES = {
