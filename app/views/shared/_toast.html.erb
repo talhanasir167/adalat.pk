@@ -1,0 +1,11 @@
+<% if flash.present? %>
+  <div class ="flash" >
+    <% flash.each do |flash_type, message| %>
+      <div class="flash__message <%= flash_type %>" 
+        data-controller="flash"
+        data-action="animationend->flash#remove">
+        <%= message %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
