@@ -1,0 +1,20 @@
+.form-control:focus {
+  box-shadow: none !important;
+}
+
+select.form-select:focus {
+  box-shadow: none !important;
+} 
+
+.sticky-top {
+  background-color: #fff;
+}
+
+.dropdown-toggle::after {
+  width: 7px !important;
+  height: 7px !important;
+  border: 2px solid #32557f !important;
+  border-left: 0 !important;
+  border-top: 0 !important;
+  transform: rotate(225deg) !important;
+}

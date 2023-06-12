@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-light border-bottom px-lg-5 sticky-top">
+  <div class="container-fluid mx-lg-5">
+    Navbar
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%= link_to 'Home', root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Categories', '', class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'About Us', '', class: "nav-link" %>
+        </li>
+      </ul>
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= image_tag(set_navbar_user_url, class: "rounded-circle nav-avatar") %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <% if user_signed_in? %>
+                <li><%= link_to "My Profile", current_user, class: "dropdown-item nav-link mx-1" %></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %></li>
+              <% else %>
+                <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item nav-link mx-1" %></li>
+                <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item nav-link mx-1" %></li>
+              <% end %>
+          </ul>
+        </li>
+      </div>
+    </div>
+  </div>
+</nav>
