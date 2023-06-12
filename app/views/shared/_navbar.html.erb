@@ -20,7 +20,7 @@
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag('user_default_avatar.png', class: "rounded-circle nav-avatar") %>
+            <%= image_tag(set_navbar_user_url, class: "rounded-circle nav-avatar") %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <% if user_signed_in? %>

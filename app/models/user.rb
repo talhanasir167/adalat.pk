@@ -20,9 +20,17 @@ class User < ApplicationRecord
     'Sindh': 1,
     'Khyber Pakhtunkhwa': 2,
     'Balochistan': 3
-  }
+  }.freeze
+
+  has_one_attached :avatar
+  has_one_attached :id_card
+  has_one_attached :bar_concil_card
 
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
+  end
+
+  def user_avatar
+    avatar.attached? && avatar || 'user_default_avatar.png'
   end
 end

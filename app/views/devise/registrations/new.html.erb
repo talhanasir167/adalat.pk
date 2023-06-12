@@ -55,9 +55,28 @@
         </div>
       </div>
 
-      <div class="field">
-        <%= f.label :tehsil_bar, class: 'form-label text-muted' %>
-        <%= f.text_field :tehsil_bar,class: "form-control mb-3", required: true, placeholder: "Tehsil Bar" %>
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :tehsil_bar, class: 'form-label text-muted' %>
+          <%= f.text_field :tehsil_bar,class: "form-control mb-3", required: true, placeholder: "Tehsil Bar" %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
+          <%= f.file_field :avatar, class: 'form-control mb-3', accept:'image/*' %>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :id_card_picture, class: 'form-label text-muted' %><br />
+          <%= f.file_field :id_card, class: 'form-control mb-3', accept:'image/*' %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :bar_concil_card_picture, class: 'form-label text-muted' %><br />
+          <%= f.file_field :bar_concil_card, class: 'form-control mb-3', accept:'image/*' %>
+        </div>
       </div>
 
       <div class="field">
