@@ -1,0 +1,17 @@
+.user-profile {
+  font-size: 0.880rem;
+}
+.user-info-card {
+  max-width: -webkit-fill-available;
+  max-height: 22rem
+}
+
+@media only screen and (max-width: 600px) {
+  .user-profile {
+    flex-direction: column-reverse;
+  }  
+
+  .user-profile-pic {
+    margin-top: 1rem;
+  }
+}
