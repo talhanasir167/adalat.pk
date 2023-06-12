@@ -23,12 +23,13 @@
             <%= image_tag('user_default_avatar.png', class: "rounded-circle nav-avatar") %>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <% if !user_signed_in? %>
-                <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item nav-link mx-1" %></li>
-                <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item nav-link mx-1" %></li>
-              <% else %>
+              <% if user_signed_in? %>
+                <li><%= link_to "My Profile", current_user, class: "dropdown-item nav-link mx-1" %></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn' %></li>
+              <% else %>
+                <li><%= link_to "Sign in", new_user_session_path, class: "dropdown-item nav-link mx-1" %></li>
+                <li><%= link_to "Sign up", new_user_registration_path, class: "dropdown-item nav-link mx-1" %></li>
               <% end %>
           </ul>
         </li>

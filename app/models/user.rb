@@ -14,4 +14,8 @@ class User < ApplicationRecord
   }.freeze
 
   enum role: ROLES
+
+  def full_name
+    "#{first_name} #{middle_name} #{last_name}"
+  end
 end
