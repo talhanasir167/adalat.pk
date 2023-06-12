@@ -16,8 +16,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :district,           null: false, default: ''
       t.string :tehsil_bar,         null: false, default: ''
       t.boolean :approved,          null: false, default: false
-      t.string  :provider
-      t.string :uid
       t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
