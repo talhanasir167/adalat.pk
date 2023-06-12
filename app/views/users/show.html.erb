@@ -1,10 +1,37 @@
 <div class="home-div">
-  <div class="d-flex justify-content-between flex-wrap">
-    <div class="d-flex mb-2">
-      <div class="align-self-center"><%= image_tag(current_user.user_avatar, class: 'rounded-circle size-15vw')%></div>
-      <div class="ps-2 align-self-center text-center">
-        <span class="fw-semibold display-6 ms-3"><%= current_user.full_name %></span><br/>
-        <%= link_to "Update Account", edit_user_registration_path(current_user), class: "btn btn-link text-primary"%>
+  <div class="shadow-lg">
+    <div class="row p-5">
+      <div class="col-md-5 text-end">
+        <%= image_tag(current_user.user_avatar, class: 'rounded-circle size-15vw')%>
+      </div>
+      <div class="col-md-7 align-self-center">
+        <div class="fw-semibold display-6"><%= current_user.full_name %></div>
+        <div>Joined: <%= current_user.created_at %></div>
+        <div>Location: <%= current_user.province %> / <%= current_user.district %> / <%= current_user.tehsil_bar %></div>
+        <div>Education: <%= current_user.qualification %></div>
+        <div>Experience: <%= current_user.experience %></div>
+      </div>
+    </div>
+    <div class="text-center">
+      <h4>About Lawyer</h4>
+      <p><%= current_user.description %></p>
+    </div>
+    <div class="border-top py-2" >
+      <div class="row text-center">
+        <div class="col-md-6 fw-semibold">
+          ID Card
+        </div>
+        <div class="col-md-6 fw-semibold">
+          Bar Concil Card
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-6">
+          <%= image_tag current_user.id_card, class: 'user-info-card' %>
+        </div>
+        <div class="col-md-6">
+          <%= image_tag current_user.bar_concil_card, class: 'user-info-card' %>
+        </div>
       </div>
     </div>
   </div>
