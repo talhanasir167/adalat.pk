@@ -12,6 +12,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
       t.string :experience,         null: false, default: ''
       t.text :description,          null: false, default: ''
       t.integer :role,              null: false, default: 0
+      t.string :province,           null: false, default: ''
+      t.string :district,           null: false, default: ''
+      t.string :tehsil_bar,         null: false, default: ''
       t.boolean :approved,          null: false, default: false
       t.string  :provider
       t.string :uid

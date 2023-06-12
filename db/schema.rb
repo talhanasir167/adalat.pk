@@ -23,6 +23,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_11_133219) do
     t.string "experience", default: "", null: false
     t.text "description", default: "", null: false
     t.integer "role", default: 0, null: false
+    t.string "province", default: "", null: false
+    t.string "district", default: "", null: false
+    t.string "tehsil_bar", default: "", null: false
     t.boolean "approved", default: false, null: false
     t.string "provider"
     t.string "uid"

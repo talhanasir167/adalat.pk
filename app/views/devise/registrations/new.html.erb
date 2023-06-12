@@ -43,6 +43,23 @@
         </div>
       </div>
 
+      <div class="row">
+        <div class="col-md field">
+          <%= f.label :province, class: 'form-label text-muted' %><br />
+          <%= f.select :province, User::PROVINCES, {}, class: "form-select" %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :district, class: 'form-label text-muted' %><br />
+          <%= f.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3' %>
+        </div>
+      </div>
+
+      <div class="field">
+        <%= f.label :tehsil_bar, class: 'form-label text-muted' %>
+        <%= f.text_field :tehsil_bar,class: "form-control mb-3", required: true, placeholder: "Tehsil Bar" %>
+      </div>
+
       <div class="field">
         <%= f.label :description, class: 'form-label text-muted' %>
         <%= f.text_area(:description, rows: '3', class: "form-control mb-3", required: true, placeholder: "Tell us about yourself") %>
