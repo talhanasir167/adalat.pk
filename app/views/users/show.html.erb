@@ -1,35 +1,62 @@
-<div class="home-div">
-  <div class="shadow-lg">
-    <div class="row p-5">
-      <div class="col-md-5 text-end">
-        <%= image_tag(current_user.user_avatar, class: 'rounded-circle size-15vw')%>
+<div class="row m-5 shadow-lg user-profile">
+  <div class="col-md-4 border-end p-lg-5 p-md-1">
+    <h2 class="fw-bolder">Contact Form</h2>
+    <%= form_with url: root_path, method: :post, id: 'guest-user-feedback' do |form| %>
+      <div class="field">
+        <%= form.label 'Your Name', class: 'form-label text-muted' %><br />
+        <%= form.text_field :name, placeholder: 'Enter Your Full Name', class: 'form-control mb-3', required: true %>
+      </div>
+      <div class="field">
+        <%= form.label :your_mobile_number, class: 'form-label text-muted' %><br />
+        <%= form.telephone_field :mobile_number, placeholder: 'Mobile No.(eg: +920300123456)', class: 'form-control mb-3', required: true %>
+      </div>
+      <div class="field">
+        <%= form.label :your_email, class: 'form-label text-muted' %><br />
+        <%= form.email_field :email, placeholder: 'example@gmail.com', class: 'form-control mb-3', required: true %>
+      </div>
+      <div class="field">
+        <%= form.label :your_message, class: 'form-label text-muted' %><br />
+        <%= form.text_area(:feedback, rows: '3', class: "form-control mb-3", required: true, placeholder: "Your message") %>
+      </div>
+      <div class="field">
+        <%= form.submit 'Send Your Message', class: "btn btn-primary w-100" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-8">
+    <div class="row p-lg-5 p-md-0">
+      <div class="col-md-5 text-center">
+        <%= image_tag(current_user.user_avatar, class: 'rounded-circle user-profile-pic')%>
       </div>
       <div class="col-md-7 align-self-center">
         <div class="fw-semibold display-6"><%= current_user.full_name %></div>
-        <div>Joined: <%= current_user.created_at %></div>
-        <div>Location: <%= current_user.province %> / <%= current_user.district %> / <%= current_user.tehsil_bar %></div>
-        <div>Education: <%= current_user.qualification %></div>
-        <div>Experience: <%= current_user.experience %></div>
+        <div><span class="fw-semibold">Joined: </span><%= distance_of_time_in_words(current_user.created_at, DateTime.now) %> ago</div>
+        <div><i class="bi bi-geo-alt fw-semibold"></i> <%= current_user.province %> / <%= current_user.district %> / <%= current_user.tehsil_bar %></div>
+        <div><span class="fw-semibold">Education: </span><%= current_user.qualification %></div>
+        <div><span class="fw-semibold">Experience: </span><%= current_user.experience %></div>
       </div>
     </div>
+
     <div class="text-center">
       <h4>About Lawyer</h4>
       <p><%= current_user.description %></p>
     </div>
-    <div class="border-top py-2" >
-      <div class="row text-center">
-        <div class="col-md-6 fw-semibold">
+
+    <div class="border-top py-2 row" >
+      <div class="d-flex col-md-6 flex-column text-center">
+        <div class="fw-semibold">
           ID Card
         </div>
-        <div class="col-md-6 fw-semibold">
-          Bar Concil Card
-        </div>
-      </div>
-      <div class="row text-center">
-        <div class="col-md-6">
+        <div class=" fw-semibold">
           <%= image_tag current_user.id_card, class: 'user-info-card' %>
         </div>
-        <div class="col-md-6">
+      </div>
+      <div class="d-flex col-md-6 flex-column text-center">
+        <div class="fw-semibold">
+          Bar Concil Card
+        </div>
+        <div class="">
           <%= image_tag current_user.bar_concil_card, class: 'user-info-card' %>
         </div>
       </div>
