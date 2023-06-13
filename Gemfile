@@ -46,6 +46,8 @@ gem 'bootstrap', '~> 5.2.3'
 
 gem 'devise'
 
+gem 'activeadmin'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
