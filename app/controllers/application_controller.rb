@@ -13,6 +13,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: devise_account_params)
   end
 
+  def authenticate_admin_user!
+    raise SecurityError unless current_user.admin?
+  end
+
+  rescue_from SecurityError do
+    flash[:error] = 'You are not authorized for this action'
+    redirect_to root_path
+  end
+
   private
 
   def devise_account_params
