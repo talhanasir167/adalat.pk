@@ -24,6 +24,9 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <% if user_signed_in? %>
+                <% if current_user.admin? %>
+                  <li><%= link_to "Admin Pannel", admin_root_path, class: "dropdown-item nav-link mx-1"%></li>
+                <% end %>
                 <li><%= link_to "My Profile", current_user, class: "dropdown-item nav-link mx-1" %></li>
                 <li><%= link_to "Update Account", edit_user_registration_path(current_user), class: "dropdown-item nav-link mx-1"%></li>
                 <li><hr class="dropdown-divider"></li>
