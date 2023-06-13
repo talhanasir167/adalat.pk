@@ -54,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_172603) do
     t.string "province", default: "", null: false
     t.string "district", default: "", null: false
     t.string "tehsil_bar", default: "", null: false
-    t.boolean "approved", default: false, null: false
+    t.datetime "verified_at"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

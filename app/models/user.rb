@@ -22,6 +22,9 @@ class User < ApplicationRecord
   has_one_attached :id_card
   has_one_attached :bar_concil_card
 
+  scope :unverified, -> { where(verified_at: nil) }
+  scope :verified, -> { where.not(verified_at: nil) }
+
   def full_name
     "#{first_name} #{middle_name} #{last_name}"
   end
