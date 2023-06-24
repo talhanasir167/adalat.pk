@@ -1,0 +1,9 @@
+@media only screen and (max-width: 600px) {
+  .user-profile {
+    flex-direction: column-reverse;
+  } 
+
+  .user-profile-pic {
+    margin-top: 1rem;
+  }
+}
