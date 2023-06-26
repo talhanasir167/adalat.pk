@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
-  before_action :set_user
+  before_action :set_user, only: %i[show verify]
+
+  def index
+    @users = User.lawyer
+  end
+
   def show; end
 
   def verify
