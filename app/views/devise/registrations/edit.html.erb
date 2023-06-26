@@ -6,22 +6,10 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-      <div class="row">
-        <div class="col-md field">
-          <%= f.label :first_name, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
-          <%= f.text_field :first_name, autofocus: true, placeholder: 'Adv.', required: true, class: 'form-control mb-3' %>
-        </div>
-
-        <div class="col-md field">
-          <%= f.label :middle_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :middle_name, placeholder: 'Imran', class: 'form-control mb-3' %>
-        </div>
-      </div>
-
        <div class="row">
         <div class="col-md field">
-          <%= f.label :last_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :last_name, placeholder: 'Zulfiqar', class: 'form-control mb-3' %>
+          <%= f.label :full_name, class: 'form-label text-muted' %><br />
+          <%= f.text_field :name, placeholder: 'Your full name', class: 'form-control mb-3' %>
         </div>
 
         <div class="col-md field">

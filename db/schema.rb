@@ -43,9 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_12_172603) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name", default: "", null: false
-    t.string "middle_name", default: ""
-    t.string "last_name", default: ""
+    t.string "name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "qualification", default: "", null: false
     t.string "experience", default: "", null: false

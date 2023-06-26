@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
   private
 
   def devise_account_params
-    %i[first_name middle_name last_name password description experience qualification province district tehsil_bar
+    %i[name password description experience qualification province district tehsil_bar
        avatar id_card bar_concil_card]
   end
 end

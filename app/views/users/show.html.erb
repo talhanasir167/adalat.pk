@@ -30,7 +30,7 @@
         <%= image_tag(current_user.user_avatar, class: 'rounded-circle user-profile-pic')%>
       </div>
       <div class="col-md-7 align-self-center">
-        <div class="fw-semibold display-6"><%= current_user.full_name %></div>
+        <div class="fw-semibold display-6"><%= current_user.name %></div>
         <div><span class="fw-semibold">Joined: </span><%= distance_of_time_in_words(current_user.created_at, DateTime.now) %> ago</div>
         <div><i class="bi bi-geo-alt fw-semibold"></i> <%= current_user.province %> / <%= current_user.district %> / <%= current_user.tehsil_bar %></div>
         <div><span class="fw-semibold">Education: </span><%= current_user.qualification %></div>
@@ -48,16 +48,16 @@
         <div class="fw-semibold">
           ID Card
         </div>
-        <div class=" fw-semibold">
-          <%= image_tag current_user.id_card, class: 'user-info-card' %>
+        <div class="border rounded-3">
+          <%= image_tag current_user.id_card, class: 'user-info-card rounded-3' %>
         </div>
       </div>
       <div class="d-flex col-md-6 flex-column text-center">
         <div class="fw-semibold">
           Bar Concil Card
         </div>
-        <div class="">
-          <%= image_tag current_user.bar_concil_card, class: 'user-info-card' %>
+        <div class="border rounded-3">
+          <%= image_tag current_user.bar_concil_card, class: 'user-info-card rounded-3' %>
         </div>
       </div>
     </div>
