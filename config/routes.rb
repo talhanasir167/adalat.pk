@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     confirmations: 'users/confirmations'
   }
 
-  resources :users, only: %i[show] do
+  resources :users, only: %i[index show] do
     member do
       get 'verify'
     end

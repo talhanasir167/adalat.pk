@@ -1,0 +1,17 @@
+<div class="shadow rounded-4 w-15rem mx-4 mb-4">
+  <div class="text-center mt-3">
+    <%= image_tag user.user_avatar, class: 's-10rem rounded-4 shadow-sm rounded-circle' %>
+  </div>
+  <div class="text-center fw-semibold pt-2">
+    <%= user.name %>
+  </div>
+  
+  <div class="border-top border-bottom p-2 my-2" >
+    <div><i class="bi bi-geo-alt fw-semibold"></i> <%= user.province %> / <%= user.district %> / <%= user.tehsil_bar %></div>
+    <div><span class="fw-semibold"><i class="bi bi-mortarboard-fill"></i> </span><%= user.qualification %></div>
+    <div><span class="fw-semibold">Experience: </span><%= user.experience %></div>
+  </div>
+  <div class="text-center pb-2">
+    <%= link_to 'Contact Now', user, class: 'btn btn-primary' %>
+  </div>
+</div>
