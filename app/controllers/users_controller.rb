@@ -4,8 +4,12 @@ class UsersController < ApplicationController
   def show; end
 
   def verify
-    @user.update(verified_at: DateTime.now)
-    redirect_to @user
+    if @user.update(verified_at: DateTime.now)
+      UserMailer.notify_user_about_acount_verification(@user).deliver_later
+      redirect_to @user, notice: 'Account has been verified successfully'
+    else
+      redirect_to root_path, error: 'There is a problem updating account'
+    end
   end
 
   private
