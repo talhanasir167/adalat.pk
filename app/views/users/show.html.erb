@@ -27,20 +27,22 @@
   <div class="col-md-8">
     <div class="row p-lg-5 p-md-0">
       <div class="col-md-5 text-center">
-        <%= image_tag(current_user.user_avatar, class: 'rounded-circle user-profile-pic')%>
+        <%= image_tag(@user.user_avatar, class: 'rounded-circle user-profile-pic')%>
       </div>
       <div class="col-md-7 align-self-center">
-        <div class="fw-semibold display-6"><%= current_user.name %></div>
-        <div><span class="fw-semibold">Joined: </span><%= distance_of_time_in_words(current_user.created_at, DateTime.now) %> ago</div>
-        <div><i class="bi bi-geo-alt fw-semibold"></i> <%= current_user.province %> / <%= current_user.district %> / <%= current_user.tehsil_bar %></div>
-        <div><span class="fw-semibold">Education: </span><%= current_user.qualification %></div>
-        <div><span class="fw-semibold">Experience: </span><%= current_user.experience %></div>
+        <div class="d-flex"><span class="fw-semibold display-6"><%= @user.name %> </span>
+          <% if @user.verified_at.present? %><span class="badge bg-primary ms-3 align-self-center"><i class="bi bi-patch-check-fill"></i> Verified</span> <% end %>
+        </div>
+        <div><span class="fw-semibold">Joined: </span><%= distance_of_time_in_words(@user.created_at, DateTime.now) %> ago</div>
+        <div><i class="bi bi-geo-alt fw-semibold"></i> <%= @user.province %> / <%= @user.district %> / <%= @user.tehsil_bar %></div>
+        <div><span class="fw-semibold">Education: </span><%= @user.qualification %></div>
+        <div><span class="fw-semibold">Experience: </span><%= @user.experience %></div>
       </div>
     </div>
 
     <div class="text-center">
       <h4>About Lawyer</h4>
-      <p><%= current_user.description %></p>
+      <p><%= @user.description %></p>
     </div>
 
     <div class="border-top py-2 row" >
@@ -49,7 +51,7 @@
           ID Card
         </div>
         <div class="border rounded-3">
-          <%= image_tag current_user.id_card, class: 'user-info-card rounded-3' %>
+          <%= image_tag @user.id_card, class: 'user-info-card rounded-3' %>
         </div>
       </div>
       <div class="d-flex col-md-6 flex-column text-center">
@@ -57,7 +59,7 @@
           Bar Concil Card
         </div>
         <div class="border rounded-3">
-          <%= image_tag current_user.bar_concil_card, class: 'user-info-card rounded-3' %>
+          <%= image_tag @user.bar_concil_card, class: 'user-info-card rounded-3' %>
         </div>
       </div>
     </div>
