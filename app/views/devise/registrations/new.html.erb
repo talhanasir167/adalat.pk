@@ -1,4 +1,4 @@
-<div class="p-5" >
+<div class="p-2 p-lg-5" >
   <%= link_to '<i class="bi bi-arrow-return-left"></i> Back'.html_safe, :back, class: "btn btn-info mb-3" %>
   <div class="register h-100 d-flex flex-column align-items-center justify-content-center p-4 max-extended-form-width m-auto rounded-3" >
     <h2 class="fw-bolder">Sign up as a Laywer</h2>
@@ -9,20 +9,8 @@
 
       <div class="row">
         <div class="col-md field">
-          <%= f.label :first_name, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
-          <%= f.text_field :first_name, autofocus: true, placeholder: 'Adv.', required: true, class: 'form-control mb-3' %>
-        </div>
-
-        <div class="col-md field">
-          <%= f.label :middle_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :middle_name, placeholder: 'Imran', class: 'form-control mb-3' %>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md field">
-          <%= f.label :last_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :last_name, placeholder: 'Zulfiqar', class: 'form-control mb-3' %>
+          <%= f.label :full_name, class: 'form-label text-muted' %><br />
+          <%= f.text_field :name, placeholder: 'Your full name', class: 'form-control mb-3' %>
         </div>
 
         <div class="col-md field">
@@ -100,8 +88,9 @@
       </div>
 
       <div class="actions my-2 text-center">
-        <%= f.submit "Sign up", class: 'btn btn-success' %>
+        <%= f.submit "Sign up", class: 'btn btn-success w-100' %>
       </div>
     <% end %>
+    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "link-secondary" %>
   </div>
 </div>

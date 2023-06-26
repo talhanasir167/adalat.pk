@@ -2,16 +2,8 @@
   font-size: 0.880rem;
 }
 .user-info-card {
+  height: 15rem;
+  width: 21rem;
+  min-width: -webkit-fill-available;
   max-width: -webkit-fill-available;
-  max-height: 22rem
-}
-
-@media only screen and (max-width: 600px) {
-  .user-profile {
-    flex-direction: column-reverse;
-  }  
-
-  .user-profile-pic {
-    margin-top: 1rem;
-  }
 }

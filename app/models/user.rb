@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  # :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
 
-  validates :first_name, :qualification, :experience, :description, :email, :province, :district,
+  validates :name, :qualification, :experience, :description, :email, :province, :district,
             :tehsil_bar, :bar_concil_card, :id_card, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
@@ -24,10 +24,6 @@ class User < ApplicationRecord
 
   scope :unverified, -> { where(verified_at: nil) }
   scope :verified, -> { where.not(verified_at: nil) }
-
-  def full_name
-    "#{first_name} #{middle_name} #{last_name}"
-  end
 
   def user_avatar
     avatar.attached? && avatar || 'user_default_avatar.png'

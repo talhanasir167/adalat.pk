@@ -1,0 +1,22 @@
+<div>
+  <!-- Header -->
+  <div style="padding: 1rem 2rem; text-align: center; color: white; font-size: xx-large; font-weight: bolder;
+              font-family: none; background: black;">
+    Law Firm
+  </div>
+
+  <!-- Body -->
+  <div>
+    <div>
+      <div style="padding: 1rem 1rem 1rem 0">Welcome <strong><%= @resource.name  %> </strong></div>
+      <div>
+        <p>You can confirm your account email through the link below:</p>
+        <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token),
+               :style=> 'color:#FFFFFF; padding:8px; text-decoration:none; background:green;' %></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div><h3> THANKS FOR USING Law Firm!</h3>
+</div>

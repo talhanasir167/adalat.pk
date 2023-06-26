@@ -2,9 +2,7 @@ index_block = proc do
   index do
     selectable_column
     id_column
-    column :first_name
-    column :middle_name
-    column :last_name
+    column :name
     column :email
     column :qualification
     column :experience
@@ -15,9 +13,7 @@ index_block = proc do
 end
 
 filter_block = proc do
-  filter :first_name
-  filter :middle_name
-  filter :last_name
+  filter :name
   filter :email
   filter :qualification
   filter :experience
@@ -37,9 +33,7 @@ end
 show_block = proc do
   show do
     attributes_table do
-      row :first_name
-      row :middle_name
-      row :last_name
+      row :name
       row :qualification
       row :experience
       row :province
@@ -58,11 +52,10 @@ end
 form_block = proc do
   form do |f|
     f.inputs do
-      f.input :first_name
-      f.input :middle_name
-      f.input :last_name
+      f.input :name
       f.input :qualification
       f.input :experience
+      f.input :description
       f.input :province
       f.input :district
       f.input :tehsil_bar
@@ -76,7 +69,7 @@ form_block = proc do
 end
 
 ActiveAdmin.register User do
-  permit_params :first_name, :last_name, :middle_name, :qualification, :experience,
+  permit_params :name, :qualification, :experience, :description,
                 :province, :district, :tehsil_bar, :verified_at, :role, :id_card, :bar_concil_card
   instance_eval(&index_block)
   instance_eval(&filter_block)
