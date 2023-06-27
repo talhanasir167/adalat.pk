@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  validates :name, :avatar, presence: true
+  validates :name, presence: true
 
   belongs_to :service
 end
