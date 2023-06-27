@@ -21,6 +21,8 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_one_attached :id_card
   has_one_attached :bar_concil_card
+  has_many :law_services
+  has_many :services, through: :law_services
 
   scope :unverified, -> { where(verified_at: nil) }
   scope :verified, -> { where.not(verified_at: nil) }
