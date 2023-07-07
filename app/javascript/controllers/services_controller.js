@@ -8,12 +8,12 @@ export default class extends Controller {
     let serviceOptions = JSON.parse(this.element.getAttribute("data-service-options"));
 
     const newRow = document.createElement('div');
-    newRow.classList.add('row', 'mt-3');
+    newRow.classList.add('row', 'service', 'mt-3');
 
     newRow.appendChild(this.getNewServiceField(serviceIndex, serviceOptions));
     newRow.appendChild(this.getNewProficiencyField(serviceIndex, levelOptions));
     this.element.appendChild(newRow);
-    if (serviceOptions.length-1 > serviceIndex) {
+    if (this.element.querySelectorAll('.service').length < serviceOptions.length) {
       this.element.appendChild(this.getNewAddServiceBtn());
     }
     this.element.setAttribute("data-service-index", serviceIndex);
@@ -21,8 +21,10 @@ export default class extends Controller {
 
   remove_service(e) {
     e.target.closest('.row').remove();
-    let serviceIndex = Number(this.element.getAttribute("data-service-index")) + 1;
-    if (this.element.querySelectorAll('.row').length < serviceIndex ) {
+    let serviceOptions = JSON.parse(this.element.getAttribute("data-service-options"));
+    let addServiceBtn = this.element.querySelector('.add-service-btn');
+
+    if (this.element.querySelectorAll('.service').length < serviceOptions.length && !addServiceBtn ) {
       this.element.appendChild(this.getNewAddServiceBtn());
     }
   }
@@ -59,7 +61,7 @@ export default class extends Controller {
 
   getNewAddServiceBtn() {
     const newElement = document.createElement('div');
-    newElement.classList.add('text-end');
+    newElement.classList.add('text-end', 'add-service-btn');
     newElement.innerHTML = `
       <a  data-action="services#add_service" class = "btn btn-outline-success mt-3" ><i class="bi bi-plus-lg"></i> Add more</a>
     `;
