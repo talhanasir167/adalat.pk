@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-md field">
           <%= f.label :full_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :name, placeholder: 'Your full name', class: 'form-control mb-3' %>
+          <%= f.text_field :name, placeholder: 'Your full name', required: true, class: 'form-control mb-3' %>
         </div>
 
         <div class="col-md field">
@@ -51,7 +51,7 @@
 
         <div class="col-md field">
           <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
-          <%= f.file_field :avatar, class: 'form-control mb-3', accept:'image/*' %>
+          <%= f.file_field :avatar, class: 'form-control mb-3', required: true, accept:'image/*' %>
         </div>
       </div>
 

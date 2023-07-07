@@ -9,6 +9,8 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :validate_user_services_uniqueness, on: :create
 
+  before_validation :prepend_adv_to_name, on: %i[create update]
+
   ROLES = {
     lawyer: 0,
     admin: 1,
@@ -39,5 +41,11 @@ class User < ApplicationRecord
   def validate_user_services_uniqueness
     service_ids = user_services.map(&:service_id)
     service_ids.uniq.size != service_ids.size && errors.add(:base, 'Each service must be unique for the user')
+  end
+
+  def prepend_adv_to_name
+    return unless name.present? && !name.downcase.start_with?('adv.', 'advocate', 'adv')
+
+    self.name = "Adv. #{name}"
   end
 end

@@ -40,8 +40,18 @@
       </div>
     </div>
 
+    <div>
+      <h4>Services</h4>
+      <% @user.user_services.each do |user_service| %>
+      <div>
+        <%= user_service.service.name %> |
+        <%= user_service.service_proficiency %>
+      </div>
+      <% end %>
+    </div>
+
     <div class="text-center">
-      <h4>About Lawyer</h4>
+      <h4>About <%= @user.name%></h4>
       <p><%= @user.description %></p>
     </div>
 
