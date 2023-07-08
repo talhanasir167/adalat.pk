@@ -20,6 +20,7 @@ filter_block = proc do
   filter :province
   filter :district
   filter :tehsil_bar
+  filter :services
   filter :verified_at
 end
 
@@ -43,6 +44,7 @@ show_block = proc do
       row('User Profile') { |user| image_tag user.user_avatar, width: 100, height: 80 }
       row('User Id Card') { |user| image_tag user.id_card, width: 100, height: 80 }
       row('User Bar Concil Card') { |user| image_tag user.bar_concil_card, width: 100, height: 80 }
+      row :services
       row :verified_at
       row :created_at
     end
