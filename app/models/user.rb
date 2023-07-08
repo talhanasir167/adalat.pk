@@ -27,7 +27,7 @@ class User < ApplicationRecord
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
 
-  accepts_nested_attributes_for :user_services
+  accepts_nested_attributes_for :user_services, allow_destroy: true
 
   scope :unverified, -> { where(verified_at: nil) }
   scope :verified, -> { where.not(verified_at: nil) }

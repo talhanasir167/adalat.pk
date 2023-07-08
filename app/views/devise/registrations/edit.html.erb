@@ -50,7 +50,7 @@
 
         <div class="col-md field">
           <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
-          <%= f.file_field :avatar, class: 'form-control mb-3', accept:'image/*' %>
+          <%= f.file_field :avatar,class: 'form-control mb-3', accept:'image/*' %>
         </div>
       </div>
 
@@ -69,6 +69,32 @@
       <div class="field">
         <%= f.label :description, class: 'form-label text-muted' %>
         <%= f.text_area(:description, rows: '3', class: "form-control mb-3", required: true, placeholder: "Tell us about yourself") %>
+      </div>
+
+      <div data-controller="services" data-service-options="<%= Service.all.pluck(:name, :id).to_json %>" 
+           data-service-index="<%= resource.user_services.count %>" data_proficiency_levels="<%= UserService::LEVELS.keys.to_json %>" class="border p-3 rounded-3 mb-2" >
+        <h5 class="text-center">Add your services</h5>
+        <%= f.fields_for(:user_services) do |service| %>
+          <div class="row service persisted-services mt-3">
+            <div class="col-md field">
+              <%= service.label :service, class: 'form-label text-muted' %><br />
+              <%= service.select :service_id, Service.all.pluck(:name, :id), {}, class: "form-select" %>
+            </div>
+            <div class="col-md field">
+              <%= service.label :service_proficiency, class: 'form-label text-muted' %><br />
+              <div class="d-flex">
+                <%= service.select :service_proficiency, UserService::LEVELS.keys, {}, class: 'form-select' %>
+                <a data-action="services#remove_service" class="align-self-center fs-4 ms-2 text-danger"><i class="bi bi-x-circle"></i></a>
+                <%= service.check_box :_destroy, class: 'd-none service-checkbox' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if resource.user_services.count < Service.all.count %>
+          <div class="text-end add-service-btn">
+            <a  data-action="services#add_service" class = "btn btn-outline-success mt-3" ><i class="bi bi-plus-lg"></i> Add more</a>
+          </div>
+        <% end %>
       </div>
 
       <div class="row">

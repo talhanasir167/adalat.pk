@@ -20,11 +20,19 @@ export default class extends Controller {
   }
 
   remove_service(e) {
-    e.target.closest('.row').remove();
+    let parentNode = e.target.closest('.row');
     let serviceOptions = JSON.parse(this.element.getAttribute("data-service-options"));
     let addServiceBtn = this.element.querySelector('.add-service-btn');
-
-    if (this.element.querySelectorAll('.service').length < serviceOptions.length && !addServiceBtn ) {
+    let selectedServicesCount = this.element.querySelectorAll('.service').length - 1;
+    if (parentNode.classList.contains('persisted-services')) {
+      e.target.closest('.row').querySelector('.service-checkbox').checked = true;
+      parentNode.classList.add('d-none');
+      selectedServicesCount -= selectedServicesCount;
+    }
+    else {
+      parentNode.remove();
+    }
+    if (selectedServicesCount < serviceOptions.length && !addServiceBtn ) {
       this.element.appendChild(this.getNewAddServiceBtn());
     }
   }
