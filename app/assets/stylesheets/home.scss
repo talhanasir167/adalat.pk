@@ -13,3 +13,29 @@
   max-height: 15rem;
   max-width: 100%;
 }
+
+.w-fill-available {
+  width: -webkit-fill-available;
+}
+
+.hover-pad:hover {
+  padding-left: 0.5rem;
+  background-color: #e9ecef;
+  border-radius: 2px;
+}
+
+.hover-pad {
+  transition: padding 0.8s ease;
+}
+
+.width-25rem {
+  width: 25rem;
+}
+
+.fs-14px {
+  font-size: 14px;
+}
+
+.ws-normal {
+  white-space: normal;
+}

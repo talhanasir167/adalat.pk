@@ -9,48 +9,48 @@
        <div class="row">
         <div class="col-md field">
           <%= f.label :full_name, class: 'form-label text-muted' %><br />
-          <%= f.text_field :name, placeholder: 'Your full name', class: 'form-control mb-3' %>
+          <%= f.text_field :name, placeholder: 'Your full name', required: true, class: 'form-control mb-3' %>
         </div>
 
         <div class="col-md field">
-          <%= f.label :email, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
+          <%= f.label :email, class: 'form-label text-muted' %><br />
           <%= f.email_field :email, autocomplete: "email", placeholder: 'example@gmail.com', required: true, class: 'form-control mb-3' %>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md field">
-          <%= f.label :qualification, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
+          <%= f.label :qualification, class: 'form-label text-muted' %><br />
           <%= f.text_field :qualification, placeholder: 'LLM', required: true, class: 'form-control mb-3' %>
         </div>
 
         <div class="col-md field">
-          <%= f.label :experience, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
+          <%= f.label :experience, class: 'form-label text-muted' %><br />
           <%= f.text_field :experience, placeholder: '5 Years', required: true, class: 'form-control mb-3' %>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md field">
-          <%= f.label :province, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
+          <%= f.label :province, class: 'form-label text-muted' %><br />
           <%= f.select :province, User::PROVINCES, {}, class: "form-select" %>
         </div>
 
         <div class="col-md field">
-          <%= f.label :district, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span><br />
+          <%= f.label :district, class: 'form-label text-muted' %><br />
           <%= f.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3' %>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md field">
-          <%= f.label :tehsil_bar, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span>
+          <%= f.label :tehsil_bar, class: 'form-label text-muted' %>
           <%= f.text_field :tehsil_bar,class: "form-control mb-3", required: true, placeholder: "Tehsil Bar" %>
         </div>
 
         <div class="col-md field">
           <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
-          <%= f.file_field :avatar, class: 'form-control mb-3', accept:'image/*' %>
+          <%= f.file_field :avatar,class: 'form-control mb-3', accept:'image/*' %>
         </div>
       </div>
 
@@ -67,8 +67,34 @@
       </div>
 
       <div class="field">
-        <%= f.label :description, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span>
+        <%= f.label :description, class: 'form-label text-muted' %>
         <%= f.text_area(:description, rows: '3', class: "form-control mb-3", required: true, placeholder: "Tell us about yourself") %>
+      </div>
+
+      <div data-controller="services" data-service-options="<%= Service.all.pluck(:name, :id).to_json %>" 
+           data-service-index="<%= resource.user_services.count %>" data_proficiency_levels="<%= UserService::LEVELS.keys.to_json %>" class="border p-3 rounded-3 mb-2" >
+        <h5 class="text-center">Add your services</h5>
+        <%= f.fields_for(:user_services) do |service| %>
+          <div class="row service persisted-services mt-3">
+            <div class="col-md field">
+              <%= service.label :service, class: 'form-label text-muted' %><br />
+              <%= service.select :service_id, Service.all.pluck(:name, :id), {}, class: "form-select" %>
+            </div>
+            <div class="col-md field">
+              <%= service.label :service_proficiency, class: 'form-label text-muted' %><br />
+              <div class="d-flex">
+                <%= service.select :service_proficiency, UserService::LEVELS.keys, {}, class: 'form-select' %>
+                <a data-action="services#remove_service" class="align-self-center fs-4 ms-2 text-danger"><i class="bi bi-x-circle"></i></a>
+                <%= service.check_box :_destroy, class: 'd-none service-checkbox' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <% if resource.user_services.count < Service.all.count %>
+          <div class="text-end add-service-btn">
+            <a  data-action="services#add_service" class = "btn btn-outline-success mt-3" ><i class="bi bi-plus-lg"></i> Add more</a>
+          </div>
+        <% end %>
       </div>
 
       <div class="row">
@@ -87,7 +113,7 @@
       </div>
 
       <div class="field">
-        <%= f.label :current_password, class: 'form-label text-muted' %><span class="text-danger fs-6"> *</span>
+        <%= f.label :current_password, class: 'form-label text-muted' %>
         <i class="text-muted">(we need your current password to confirm your changes)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password", class: 'form-control mb-3', required: true %>
       </div>
