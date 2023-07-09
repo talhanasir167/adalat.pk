@@ -28,6 +28,14 @@
   transition: padding 0.8s ease;
 }
 
+.hover-animation {
+  transition: padding 0.8s ease;
+}
+
+.hover-animation:hover {
+  padding-left: 0.5rem;
+}
+
 .width-25rem {
   width: 25rem;
 }
@@ -38,4 +46,8 @@
 
 .ws-normal {
   white-space: normal;
+}
+
+.gredient-background {
+  background: linear-gradient(to right, #141010 0%, #393e46 100%);
 }
