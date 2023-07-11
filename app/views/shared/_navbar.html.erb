@@ -1,83 +1,68 @@
-<nav class="navbar navbar-expand-lg navbar-dark gredient-background border-bottom px-lg-5 sticky-top">
-  <div class="container-fluid mx-lg-5">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-        <li class="nav-item">
-          <%= link_to 'Home', root_path, class: "nav-link active px-lg-4 fw-semibold fs-14px" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'Lawyers', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px" %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link dropdown-toggle fs-14px px-lg-4 fw-semibold" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Services
-          </a>
-          <div class="dropdown-menu mt-0 rounded-0 shadow-sm p-2 w-fill-available" aria-labelledby="navbarDropdownMenuLink">
-            <div class="d-flex flex-wrap justify-content-around"> 
-              <% Service.all.each do |service| %>
-                <div class="mx-2 border-end pe-3">
-                  <div class="fw-semibold"><%= service.name %></div>
-                  <div>
-                    <% service.categories.each do |category| %>
-                      <div class="hover-pad"><i class="bi bi-arrow-right"></i> <%= category.name %></div>
-                    <% end %>
-                    <div class="hover-pad"><i class="bi bi-arrow-right"></i> All</div>
-                  </div>
-                </div>
-              <% end %>
+<div class="header pt-lg-4">
+  <nav class="navbar navbar-expand-lg navbar-dark px-lg-5 sticky-top transparent-bg">
+    <div class="container-fluid mx-lg-5">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+          <li class="nav-item">
+            <%= link_to 'Home', root_path, class: "nav-link active px-lg-4 fw-semibold fs-14px" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Lawyers', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Services', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px" %>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle fs-14px px-lg-4 fw-semibold" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Company
+            </a>
+            <div class="dropdown-menu rounded-0 p-2 width-25rem" aria-labelledby="navbarDropdownMenuLink2">
+              <a href="/about" class="dropdown-item rounded-2 mb-2 hover-pad">
+                <div class="fw-semibold fs-14px">About Us</div>
+                <div class="fs-14px fw-light ws-normal text-muted">Discover the story behind our mission, explore what we have to offer, 
+                  and learn more about who we are</div>
+              </a>
+              <a href="/contact" class="dropdown-item rounded-2 mb-2 hover-pad">
+                <div class="fw-semibold fs-14px">Contact Us</div>
+                <div class="fs-14px fw-light ws-normal text-muted">Want to share your thoughts, suggestions, or any issues you've encountered while using the website</div>
+              </a>
+              <a href="/faqs" class="dropdown-item rounded-2 mb-2 hover-pad">
+                <div class="fw-semibold fs-14px">FAQ's</div>
+                <div class="fs-14px fw-light ws-normal text-muted">Have any question? Please have a look at some frequently asked questions</div>
+              </a>
             </div>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle fs-14px px-lg-4 fw-semibold" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Company
-          </a>
-          <div class="dropdown-menu rounded-4 shadow-sm p-2 width-25rem" aria-labelledby="navbarDropdownMenuLink2">
-            <a href="/about" class="dropdown-item rounded-2 mb-2">
-              <div class="fw-semibold fs-14px">About Us</div>
-              <div class="fs-14px fw-light ws-normal text-muted">Discover the story behind our mission, explore what we have to offer, 
-                and learn more about who we are</div>
+          </li>
+          <li class="nav-item">
+            <a href="https://dsjlahore.punjab.gov.pk/" class="nav-link px-lg-4 fw-semibold fs-14px">Case Management</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= image_tag(set_navbar_user_url, class: "rounded-circle nav-avatar border border-2 border-primary") %>
             </a>
-            <a href="/contact" class="dropdown-item rounded-2 mb-2">
-              <div class="fw-semibold fs-14px">Contact Us</div>
-              <div class="fs-14px fw-light ws-normal text-muted">Want to share your thoughts, suggestions, or any issues you've encountered while using the website</div>
-            </a>
-            <a href="/faqs" class="dropdown-item rounded-2 mb-2">
-              <div class="fw-semibold fs-14px">FAQ's</div>
-              <div class="fs-14px fw-light ws-normal text-muted">Have any question? Please have a look at some frequently asked questions</div>
-            </a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="https://dsjlahore.punjab.gov.pk/" class="nav-link px-lg-4 fw-semibold fs-14px">Case Management</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav mb-2 mb-lg-0">
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <%= image_tag(set_navbar_user_url, class: "rounded-circle nav-avatar border border-2 border-primary") %>
-          </a>
-          <ul class="dropdown-menu rounded-4 shadow-sm p-2" aria-labelledby="navbarDropdown">
-              <% if user_signed_in? %>
-                <% if current_user.admin? %>
-                  <li class="hover-pad"><%= link_to '<i class="bi bi-person-check-fill"></i> Admin Pannel'.html_safe, admin_root_path, class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
+            <ul class="dropdown-menu rounded-0 p-2" aria-labelledby="navbarDropdown">
+                <% if user_signed_in? %>
+                  <% if current_user.admin? %>
+                    <li class="hover-pad"><%= link_to '<i class="bi bi-person-check-fill"></i> Admin Pannel'.html_safe, admin_root_path, class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
+                  <% end %>
+                  <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <li class="hover-pad"><%= link_to '<i class="bi bi-gear"></i> Update Account'.html_safe, edit_user_registration_path(current_user), class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
+                  <li class="hover-pad"><hr class="dropdown-divider"></li>
+                  <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn text' %></li>
+                <% else %>
+                  <li class="hover-pad"><%= link_to '<i class="bi bi-box-arrow-in-right"></i> Sign in'.html_safe, new_user_session_path, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <li class="hover-pad"><%= link_to '<i class="bi bi-person-plus"></i> Sign up'.html_safe, new_user_registration_path, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
                 <% end %>
-                <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
-                <li class="hover-pad"><%= link_to '<i class="bi bi-gear"></i> Update Account'.html_safe, edit_user_registration_path(current_user), class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
-                <li class="hover-pad"><hr class="dropdown-divider"></li>
-                <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn text' %></li>
-              <% else %>
-                <li class="hover-pad"><%= link_to '<i class="bi bi-box-arrow-in-right"></i> Sign in'.html_safe, new_user_session_path, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
-                <li class="hover-pad"><%= link_to '<i class="bi bi-person-plus"></i> Sign up'.html_safe, new_user_registration_path, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
-              <% end %>
-          </ul>
-        </li>
+            </ul>
+          </li>
+        </div>
       </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

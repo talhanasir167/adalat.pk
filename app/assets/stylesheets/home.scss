@@ -19,9 +19,15 @@
 }
 
 .hover-pad:hover {
-  padding-left: 0.5rem;
-  background-color: #e9ecef;
-  border-radius: 2px;
+  padding-left: 0.6rem;
+  
+  a {
+    color: #B68A56 !important;
+  }
+
+  div {
+    color: #dbae6e !important;
+  }
 }
 
 .hover-pad {
@@ -50,4 +56,73 @@
 
 .gredient-background {
   background: linear-gradient(to right, #141010 0%, #393e46 100%);
+}
+
+.header {
+  background-color: initial;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+
+.w-45rem {
+  width: 45rem;
+}
+
+.w-33rem {
+  width: 33rem;
+}
+
+.text-gold {
+  color: #D2A66B;
+}
+         
+.btn-gold {
+  background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  transition: 0.5s;
+  box-shadow: 0 0 10px #eee;
+}
+
+.btn-gold:hover {
+  background-image: linear-gradient(to right, #9D7147 0%, #B98D59  51%, #D3A86C  100%);
+}
+
+.carousel-1 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+}
+
+.carousel-2 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  right: 9%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: right;
+}
+
+.carousel-3 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  right: 15%;
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: right;
+}
+
+.fs-large {
+  font-size: 3.5rem;
+}
+
+.transparent-bg {
+  background-color: rgba(0, 0, 0, 0.5);
 }

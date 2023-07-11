@@ -10,10 +10,14 @@ select.form-select:focus {
   background-color: #fff;
 }
 
+.dropdown-item:hover {
+  background-color: initial !important;
+}
+
 .dropdown-toggle::after {
   width: 7px !important;
   height: 7px !important;
-  border: 2px solid #32557f !important;
+  border: 2px solid #d2d2d2 !important;
   border-left: 0 !important;
   border-top: 0 !important;
   transform: rotate(225deg) !important;
