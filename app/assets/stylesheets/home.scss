@@ -187,6 +187,25 @@
   width: 15rem;
 }
 
+.gredient-line::before {
+  width: 47px;
+  height: 2px;
+  left: 14vw;
+  background-color: #d5aa6d;
+  content: '';
+  position: absolute;
+}
+
+.gredient-line > span {
+  left: 17.5vw;
+  right: 0;
+  background-color: #dadada;
+  height: 1px;
+  content: '';
+  position: absolute;
+  width: 15rem;
+}
+
 .h-fill-available {
   height: -webkit-fill-available;
 }

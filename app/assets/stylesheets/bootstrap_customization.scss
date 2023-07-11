@@ -1,5 +1,12 @@
 .form-control:focus {
   box-shadow: none !important;
+  border-color: #D2A66B !important;
+}
+
+.form-control {
+  background-color: #eef2f3 !important;
+  font-weight: lighter !important;
+  font-size: 13px !important;
 }
 
 select.form-select:focus {
