@@ -134,3 +134,35 @@
 .gold-shadow {
   text-shadow: 2px 2px 5px #D2A66B;
 }
+
+.journey {
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+  color: #9d9a9a;
+}
+
+.journey::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 4px;
+  background-color: #e1e1e1;
+  width: 100%;
+  margin-top: 40px;
+  left: 0;
+  right: 0;
+}
+
+.journey > .year:hover {
+  color: black;
+
+  .dot {
+    background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  }
+} 
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+}
