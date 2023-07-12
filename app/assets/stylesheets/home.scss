@@ -19,13 +19,27 @@
 }
 
 .hover-pad:hover {
-  padding-left: 0.5rem;
-  background-color: #e9ecef;
-  border-radius: 2px;
+  padding-left: 0.6rem;
+  
+  a {
+    color: #B68A56 !important;
+  }
+
+  div {
+    color: #dbae6e !important;
+  }
 }
 
 .hover-pad {
   transition: padding 0.8s ease;
+}
+
+.hover-animation {
+  transition: padding 0.8s ease;
+}
+
+.hover-animation:hover {
+  padding-left: 0.5rem;
 }
 
 .width-25rem {
@@ -38,4 +52,267 @@
 
 .ws-normal {
   white-space: normal;
+}
+
+.header {
+  background-color: initial;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 999;
+}
+
+.w-52vw {
+  width: 52vw;
+}
+
+.w-33rem {
+  width: 33rem;
+}
+
+.text-gold {
+  color: #D2A66B;
+}
+         
+.btn-gold {
+  background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  box-shadow: 0 0 10px #eee;
+}
+
+.btn-gold:hover {
+  background-image: linear-gradient(to right, #9D7147 0%, #B98D59  51%, #D3A86C  100%);
+}
+
+.carousel-1 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+}
+
+.carousel-2 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  right: 9%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: right;
+}
+
+.carousel-3 {
+  position: absolute;
+  bottom: calc(100vw * 0.08);
+  right: 15%;
+  left: 15%;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: right;
+}
+
+.fs-large {
+  font-size: 4vw;
+}
+
+.transparent-bg {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.transparent-bg2 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.top-74px {
+  top: -74px;
+}
+
+.gold-shadow {
+  text-shadow: 2px 2px 5px #D2A66B;
+}
+
+.journey {
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
+  color: #9d9a9a;
+}
+
+.journey::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  height: 4px;
+  background-color: #e1e1e1;
+  width: 100%;
+  margin-top: 40px;
+  left: 0;
+  right: 0;
+}
+
+.journey {
+    .year {
+      max-width: 17.6rem;
+      transition: color 0.5s ease;
+    }
+    .year:hover {
+      color: black;
+
+    .dot {
+      background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+    }
+  }
+} 
+
+.dot {
+  height: 20px;
+  width: 20px;
+  background-color: #bbb;
+}
+
+.px-10vw {
+  padding-left: 10vw !important;
+  padding-right: 10vw !important;
+}
+
+.about {
+  .gredient-line::before {
+    left: 10vw; 
+  }
+}
+
+.about {
+   .gredient-line > span {
+    left: 13.5vw;
+  }
+}
+
+.contact { 
+  .gredient-line::before {
+    left: 13.5vw;
+  }
+}
+
+.contact { 
+  .gredient-line > span {
+    left: 17vw;
+  }
+}
+
+.gredient-line::before {
+  width: 47px;
+  height: 2px;
+  left: 14vw;
+  background-color: #d5aa6d;
+  content: '';
+  position: absolute;
+}
+
+.gredient-line > span {
+  left: 17.5vw;
+  right: 0;
+  background-color: #dadada;
+  height: 1px;
+  content: '';
+  position: absolute;
+  width: 15rem;
+}
+
+.h-fill-available {
+  height: -webkit-fill-available;
+}
+
+.gredient-text {
+  background: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.footer-bg {
+  background-color: #191514;
+}
+
+.dashed-border {
+  border: 2px dashed;
+  transition: border 0.5s ease;
+}
+
+.dashed-border:hover {
+  border: 2px dashed #D2A66B;
+}
+
+.bg-img {
+  background-image: url('assets/slider2.jpg');
+}
+
+.max-w-22rem {
+  max-width: 22rem;
+}
+
+.flex-d {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.size-19rem {
+  width: 17rem;
+  height: 19rem;
+}
+
+.float-div {
+  top: -43px;
+  width: 15rem;
+  transition: background-color 0.5s ease;
+}
+
+.opacity {
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.hover-transition:hover {
+  .opacity {
+    opacity: 1;
+  }
+  .float-div {
+    background-color: black !important;
+    color: white;
+  }
+
+  .float-div > .fw-bold {
+    border-bottom: 1px solid #D2A66B;
+  }
+}
+
+.hover-eff {
+  transition: all 0.5s ease;
+}
+
+.hover-eff:hover {
+  background-color: black !important;
+  color: white !important;
+
+  .eff-child {
+    border-bottom: 1px solid #535353;
+  }
+}
+
+.mb-5vw {
+  margin-bottom: 5vw;
+}
+
+.res-pad {
+  padding: 3vw 4vw;
+}
+
+.fs-2vw {
+  font-size: 2vw;
+}
+
+.res-pad2 {
+  padding: 3vw 0 5vw 0;
 }

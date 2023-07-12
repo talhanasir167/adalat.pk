@@ -1,0 +1,18 @@
+<div class="bg-img">
+  <div class="px-10vw text-center py-5 mb-5 transparent-bg2"> 
+    <div class="gredient-text font-monospace">Services</div>
+    <div class="d-flex justify-content-center my-3">
+      <div class="fw-bold text-white w-33rem h2">We are here to fight against any violance with 
+      <span class="gredient-text">experience</span></div>
+    </div>
+    <div class="flex-d">
+      <% @services.each do |service| %>
+        <div class="p-5 dashed-border max-w-22rem">
+          <div><%= add_style(service.icon, ' fs-1 gredient-text').html_safe %></div>
+          <div class="text-white fw-bold py-3"><%= service.name %></div>
+          <div class="text-secondary"><%= service.description %></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
