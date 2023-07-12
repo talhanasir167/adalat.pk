@@ -77,7 +77,6 @@
          
 .btn-gold {
   background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
-  transition: 0.5s;
   box-shadow: 0 0 10px #eee;
 }
 
@@ -136,8 +135,8 @@
 }
 
 .journey {
-  margin-left: 7.5rem;
-  margin-right: 7.5rem;
+  margin-left: 7.5vw;
+  margin-right: 7.5vw;
   color: #9d9a9a;
 }
 
@@ -153,11 +152,17 @@
   right: 0;
 }
 
-.journey > .year:hover {
-  color: black;
+.journey {
+    .year {
+      max-width: 17.6rem;
+      transition: color 0.5s ease;
+    }
+    .year:hover {
+      color: black;
 
-  .dot {
-    background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+    .dot {
+      background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+    }
   }
 } 
 
@@ -172,23 +177,28 @@
   padding-right: 10vw !important;
 }
 
-.about > .gredient-line::before {
-  width: 47px;
-  height: 2px;
-  left: 10vw;
-  background-color: #d5aa6d;
-  content: '';
-  position: absolute;
+.about {
+  .gredient-line::before {
+    left: 10vw; 
+  }
 }
 
-.about > .gredient-line > span {
-  left: 13.5vw;
-  right: 0;
-  background-color: #dadada;
-  height: 1px;
-  content: '';
-  position: absolute;
-  width: 15rem;
+.about {
+   .gredient-line > span {
+    left: 13.5vw;
+  }
+}
+
+.contact { 
+  .gredient-line::before {
+    left: 13.5vw;
+  }
+}
+
+.contact { 
+  .gredient-line > span {
+    left: 17vw;
+  }
 }
 
 .gredient-line::before {
@@ -226,6 +236,11 @@
 
 .dashed-border {
   border: 2px dashed;
+  transition: border 0.5s ease;
+}
+
+.dashed-border:hover {
+  border: 2px dashed #D2A66B;
 }
 
 .bg-img {
@@ -241,4 +256,47 @@
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
+}
+
+.size-19rem {
+  width: 17rem;
+  height: 19rem;
+}
+
+.float-div {
+  top: -43px;
+  width: 15rem;
+  transition: background-color 0.5s ease;
+}
+
+.opacity {
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.hover-transition:hover {
+  .opacity {
+    opacity: 1;
+  }
+  .float-div {
+    background-color: black !important;
+    color: white;
+  }
+
+  .float-div > .fw-bold {
+    border-bottom: 1px solid #D2A66B;
+  }
+}
+
+.hover-eff {
+  transition: all 0.5s ease;
+}
+
+.hover-eff:hover {
+  background-color: black !important;
+  color: white !important;
+
+  .eff-child {
+    border-bottom: 1px solid #535353;
+  }
 }

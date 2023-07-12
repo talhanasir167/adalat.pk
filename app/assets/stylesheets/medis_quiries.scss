@@ -11,3 +11,9 @@
     box-shadow: none !important;
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .top-74px {
+    top: 0;
+  }
+}
