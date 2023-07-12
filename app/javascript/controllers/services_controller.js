@@ -44,7 +44,7 @@ export default class extends Controller {
     proficiencyField.innerHTML = `
       <label class="form-label text-muted">Service proficiency</label><br />
       <div class="d-flex">
-        <select name="user[user_services_attributes][${serviceIndex}][service_proficiency]" class="form-select">
+        <select name="user[user_services_attributes][${serviceIndex}][service_proficiency]" class="form-select rounded-0">
           ${selectOptions}
         </select>
         <a data-action="services#remove_service" class="align-self-center fs-4 ms-2 text-danger"><i class="bi bi-x-circle"></i></a>
@@ -60,7 +60,7 @@ export default class extends Controller {
     newServiceField.innerHTML = `
       <label class="form-label text-muted">Service</label><br />
       <select name="user[user_services_attributes][${serviceIndex}][service_id]" 
-              id="user_user_services_attributes_${serviceIndex}_service_id" class="form-select">
+              id="user_user_services_attributes_${serviceIndex}_service_id" class="form-select rounded-0">
         ${selectOptions}
       </select>
     `;
@@ -71,7 +71,7 @@ export default class extends Controller {
     const newElement = document.createElement('div');
     newElement.classList.add('text-end', 'add-service-btn');
     newElement.innerHTML = `
-      <a  data-action="services#add_service" class = "btn btn-outline-success mt-3" ><i class="bi bi-plus-lg"></i> Add more</a>
+      <a  data-action="services#add_service" class = "btn text-success mt-3 rounded-0" ><i class="bi bi-plus-lg"></i> Add more</a>
     `;
     return newElement;
   }

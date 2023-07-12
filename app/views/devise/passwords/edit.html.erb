@@ -1,4 +1,4 @@
-<div class="p-2 p-lg-5" >
+<div class="p-2 p-lg-5 mt-5" >
   <div class="register h-100 d-flex flex-column align-items-center justify-content-center p-4 max-form-width m-auto rounded-3" >
     <h2 class="fw-bolder">Change your password</h2>
 
@@ -11,16 +11,16 @@
         <% if @minimum_password_length %>
           <em class="text-muted">(<%= @minimum_password_length %> characters minimum)</em><br />
         <% end %>
-        <%= f.password_field :password, autofocus: true, required: true, class: 'form-control mb-3' %>
+        <%= f.password_field :password, autofocus: true, required: true, class: 'form-control mb-3 rounded-0' %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation, "Confirm new password", class: 'form-label text-muted' %><br />
-        <%= f.password_field :password_confirmation, required: true, class: 'form-control mb-3' %>
+        <%= f.password_field :password_confirmation, required: true, class: 'form-control mb-3 rounded-0' %>
       </div>
 
       <div class="actions my-2 text-center">
-        <%= f.submit "Change my password", class: 'btn btn-success' %>
+        <%= f.submit "Change my password", class: 'btn btn-gold rounded-0 text-white w-100' %>
       </div>
     <% end %>
 
