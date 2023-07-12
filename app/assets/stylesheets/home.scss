@@ -123,6 +123,10 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.transparent-bg2 {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
 .top-74px {
   top: -74px;
 }
@@ -218,4 +222,23 @@
 
 .footer-bg {
   background-color: #191514;
+}
+
+.dashed-border {
+  border: 2px dashed;
+}
+
+.bg-img {
+  background-image: url('assets/slider2.jpg');
+}
+
+.max-w-22rem {
+  max-width: 22rem;
+}
+
+.flex-d {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
