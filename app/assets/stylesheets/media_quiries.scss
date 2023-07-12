@@ -1,0 +1,49 @@
+@media only screen and (max-width: 600px) {
+  .user-profile {
+    flex-direction: column-reverse;
+  } 
+
+  .user-profile-pic {
+    margin-top: 1rem;
+  }
+
+  .register {
+    box-shadow: none !important;
+  }
+
+  .carousel-1 {
+    padding-bottom: 0 !important;
+  }
+
+  .carousel-2 {
+    padding-bottom: 0 !important;
+  }
+
+  .carousel-3 {
+    padding-bottom: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .top-74px {
+    top: 0;
+  }
+
+  .carousel-1 {
+    display: block !important;
+  }
+
+  .res-pad {
+    font-weight: normal !important;
+  }
+}
+
+@media only screen and (max-width: 991px) { 
+  nav {
+    background-color: rgba(0, 0, 0, 0.9) !important; 
+  }
+
+  .carousel {
+    margin-top: 3.5rem;
+  }
+}

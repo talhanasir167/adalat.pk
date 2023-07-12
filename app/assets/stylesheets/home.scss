@@ -63,8 +63,8 @@
   z-index: 999;
 }
 
-.w-45rem {
-  width: 45rem;
+.w-52vw {
+  width: 52vw;
 }
 
 .w-33rem {
@@ -115,7 +115,7 @@
 }
 
 .fs-large {
-  font-size: 3.5rem;
+  font-size: 4vw;
 }
 
 .transparent-bg {
@@ -299,4 +299,20 @@
   .eff-child {
     border-bottom: 1px solid #535353;
   }
+}
+
+.mb-5vw {
+  margin-bottom: 5vw;
+}
+
+.res-pad {
+  padding: 3vw 4vw;
+}
+
+.fs-2vw {
+  font-size: 2vw;
+}
+
+.res-pad2 {
+  padding: 3vw 0 5vw 0;
 }
