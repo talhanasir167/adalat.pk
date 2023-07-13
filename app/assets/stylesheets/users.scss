@@ -17,3 +17,14 @@
 .w-15rem {
   width: 15rem;
 }
+
+.gredient-border {
+  content: '';
+  height: 6px;
+  background: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  width: 3rem;
+  border-radius: 0 0 10px 10px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}

@@ -71,6 +71,10 @@
   width: 33rem;
 }
 
+.w-30vw {
+  width: 30vw;
+}
+
 .text-gold {
   color: #D2A66B;
 }
@@ -78,6 +82,7 @@
 .btn-gold {
   background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
   box-shadow: 0 0 10px #eee;
+  border: none !important;
 }
 
 .btn-gold:hover {
@@ -269,14 +274,14 @@
   transition: background-color 0.5s ease;
 }
 
-.opacity {
-  opacity: 0.5;
-  transition: opacity 0.5s ease;
+.grayscale {
+  filter: grayscale(100%);
+  transition: grayscale 0.5s ease;
 }
 
 .hover-transition:hover {
-  .opacity {
-    opacity: 1;
+  .grayscale {
+    filter: grayscale(0);
   }
   .float-div {
     background-color: black !important;
