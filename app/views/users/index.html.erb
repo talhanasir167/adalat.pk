@@ -1,4 +1,10 @@
-<%= render 'shared/page_title', title: 'Our Amazing Team', primary_link: 'Home', other_links: 'Lawyers' %>
+<div class="page-title">
+  <div class="text-white fw-bold h1">Our Amazing Team</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span><%= link_to 'Lawyers', users_path, class: 'text-decoration-none gredient-text' %></span>
+  </div>
+</div>
 
 <div class="text-center my-5">
   <div class="gredient-text font-monospace">Team</div>

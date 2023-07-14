@@ -1,4 +1,14 @@
-<%= render 'shared/page_title', title: @user.name, primary_link: 'Home', other_links: "Lawyers > #{ @user.name }" %>
+<div class="page-title">
+  <div class="text-white fw-bold h1">Our Amazing Team</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span class="gredient-text">
+      <%= link_to 'Lawyers', users_path, class: 'text-decoration-none' %> > 
+      <%= @user.name %>
+    </span>
+  </div>
+</div>
+
 <div class="row flex-column flex-lg-row justify-content-center m-lg-5 user-profile">
   <div class="col-md-8 px-5">
     <div class="d-flex p-md-0">
