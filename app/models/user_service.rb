@@ -11,4 +11,6 @@ class UserService < ApplicationRecord
   }.freeze
 
   enum service_proficiency: LEVELS
+
+  default_scope { order(created_at: :asc) }
 end

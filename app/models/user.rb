@@ -29,6 +29,7 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :user_services, allow_destroy: true
 
+  default_scope { order(created_at: :asc) }
   scope :unverified, -> { where(verified_at: nil) }
   scope :verified, -> { where.not(verified_at: nil) }
 

@@ -9,8 +9,8 @@
 }
 
 .user-profile-pic {
-  width: 15rem;
-  max-height: 15rem;
+  width: 10rem;
+  max-height: 10rem;
   max-width: 100%;
 }
 
@@ -71,8 +71,8 @@
   width: 33rem;
 }
 
-.w-30vw {
-  width: 30vw;
+.w-30rem {
+  width: 30rem;
 }
 
 .text-gold {
@@ -129,6 +129,10 @@
 
 .transparent-bg2 {
   background-color: rgba(0, 0, 0, 0.9);
+}
+
+.transparent-bg3 {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .top-74px {

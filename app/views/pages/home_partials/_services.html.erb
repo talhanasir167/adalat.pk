@@ -7,13 +7,7 @@
     </div>
     <div class="gredient-border"></div>
     <div class="flex-d">
-      <% @services.each do |service| %>
-        <div class="p-5 dashed-border max-w-22rem">
-          <div><%= add_style(service.icon, ' fs-1 gredient-text').html_safe %></div>
-          <div class="text-white fw-bold py-3"><%= service.name %></div>
-          <div class="text-secondary"><%= service.description %></div>
-        </div>
-      <% end %>
+      <%= render @services %>
     </div>
   </div>
 </div>
