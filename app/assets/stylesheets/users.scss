@@ -45,3 +45,13 @@
 .read-more {
   height: auto;
 }
+
+.chat-link {
+  bottom: 40px;
+  right: 40px;
+  z-index: 1023;
+
+  i {
+    background: #25D366;
+  }
+}
