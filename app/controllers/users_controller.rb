@@ -6,7 +6,9 @@ class UsersController < ApplicationController
     @users = User.lawyer
   end
 
-  def show; end
+  def show
+    @similar_users = User.joins(:services).where(services: { id: @user.services.ids }).where.not(id: @user.id)
+  end
 
   def verify
     if @user.update(verified_at: DateTime.now)

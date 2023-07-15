@@ -22,7 +22,7 @@
     </div>
 
     <div class="flex-d mt-5">
-      <%= render @users %>
+      <%= render partial: 'pages/home_partials/team_member', collection: @users, as: :user %>
     </div>
   </div>
 </div>

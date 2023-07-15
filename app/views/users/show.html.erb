@@ -9,7 +9,7 @@
   </div>
 </div>
 
-<div class="row flex-column flex-lg-row justify-content-center m-lg-5 user-profile">
+<div class="row  mx-0 flex-column flex-lg-row justify-content-center m-lg-5 user-profile">
   <div class="col-md-8 px-5">
     <div class="d-flex p-md-0">
       <div class="me-3">
@@ -47,7 +47,7 @@
       <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
     </div>
 
-    <div class="row my-3">
+    <div class="row my-3 mx-0">
       <div class="col-md">
         <div class="fw-semibold">Education</div>
         <li><%= @user.qualification %></li>
@@ -61,7 +61,7 @@
     </div>
 
     <% if user_signed_in? && current_user.admin? %>
-      <div class="border-top py-2 row" >
+      <div class="border-top py-2 row mx-0" >
         <div class="d-flex col-md-6 flex-column text-center">
           <div class="fw-semibold">ID Card</div>
           <div class="border rounded-3">
@@ -112,5 +112,15 @@
     <div class="flex-d">
       <%= render @user.services %>
     </div>
+  </div>
+</div>
+
+<div class="px-10vw">
+  <div class="gredient-text text-center">Similar Lawyers</div>
+  <div class="d-flex justify-content-center">
+    <div class="text-center my-4 fw-bold fs-1 w-33rem"> Some lawyers providing same <span class="gredient-text">services</span></div>
+  </div>
+  <div>
+    <%= render @similar_users %>
   </div>
 </div>
