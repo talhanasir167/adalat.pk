@@ -19,11 +19,35 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @users = User.lawyer
+    name_search(params[:name]) if params[:name_search].present?
+    service_search(params[:service_id]) if params[:service_id].present?
+    tehsil_bar_search(params[:tehsil_bar]) if params[:tehsil_bar].present?
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update('users-list', partial: 'users/user', collection: @users, as: :user)
+      end
+    end
+  end
+
   private
 
   def set_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to '/404'
+  end
+
+  def name_search(name)
+    @users = @users.where('users.name ILIKE ?', "%#{name}%")
+  end
+
+  def service_search(service_id)
+    @users = @users.joins(:services).where(services: { id: service_id })
+  end
+
+  def tehsil_bar_search(tehsil_bar)
+    @users = @users.where('tehsil_bar ILIKE ?', "%#{tehsil_bar}%")
   end
 end

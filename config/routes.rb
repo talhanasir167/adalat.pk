@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     member do
       get 'verify'
     end
+    collection do
+      post 'search'
+    end
   end
 end

@@ -16,6 +16,23 @@
       </div>
     </div>
   </div>
+  <div class="d-flex mb-3 p-4 shadow-sm w-fit-content">
+    <div class="me-3"><i class="bi bi-building fs-1 gredient-text"></i></div>
+    <table class="fs-small">
+      <tr>
+        <td>Province</td>
+        <td  class="text-secondary ps-3"><%= user.province %></td>
+      </tr>
+      <tr>
+        <td>District</td>
+        <td  class="text-secondary ps-3"><%= user.district %></td>
+      </tr>
+      <tr>
+        <td>Tehsil Bar</td>
+        <td  class="text-secondary ps-3"><%= user.tehsil_bar %></td>
+      </tr>
+    </table>
+  </div>
   <div>
     <%= link_to 'View Profile', user, class: 'btn-outline-secondary btn w-100' %>
   </div>
