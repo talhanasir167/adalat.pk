@@ -17,12 +17,12 @@
       </div>
       <div class="align-self-center">
         <div class="d-flex flex-wrap"><span class="fw-bold fs-large"><%= @user.name %> </span>
-          <% if @user.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check-fill"></i> Verified</span> <% end %>
+          <% if @user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check-fill"></i> Verified</span> <% end %>
         </div>
         <div><span class="fw-semibold">Joined: </span>
           <span class="fs-small" > <%= distance_of_time_in_words(@user.created_at, DateTime.now) %> ago</span>
         </div>
-        <div class="fs-small"><%= @user.experience %> years of experience</div>
+        <div class="fs-small"><%= @user.user_summary&.experience %> years of experience</div>
       </div>
     </div>
 
@@ -36,13 +36,13 @@
         <div class="text-secondary">Satisfaction Rate</div>
       </div>
       <div class="col-md p-4">
-        <div class="gredient-text fw-bold fs-2"><%= @user.experience %></div>
+        <div class="gredient-text fw-bold fs-2"><%= @user.user_summary&.experience %></div>
         <div class="text-secondary">Years of Experience</div>
       </div>
     </div>
 
     <div class="mt-3" data-controller="users">
-      <div class="read-less" id="short-description"><%= @user.description %></div>
+      <div class="read-less" id="short-description"><%= @user.user_summary&.description %></div>
       <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more">Read More</a>
       <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
     </div>
@@ -50,13 +50,13 @@
     <div class="row my-3 mx-0">
       <div class="col-md">
         <div class="fw-semibold">Education</div>
-        <li><%= @user.qualification %></li>
+        <li><%= @user.user_summary&.qualification %></li>
       </div>
       <div class="col-md">
         <div class="fw-semibold">Locations</div>
-        <li>Province | <span class="text-secondary fw-14px"><%= @user.province %></span></li>
-        <li>District | <span class="text-secondary fw-14px"><%= @user.district %></span></li>
-        <li>Tehsil Bar | <span class="text-secondary fw-14px"><%= @user.tehsil_bar %><span></li>
+        <li>Province | <span class="text-secondary fw-14px"><%= @user.user_summary&.province %></span></li>
+        <li>District | <span class="text-secondary fw-14px"><%= @user.user_summary&.district %></span></li>
+        <li>Tehsil Bar | <span class="text-secondary fw-14px"><%= @user.user_summary&.tehsil_bar %><span></li>
       </div>
     </div>
 
@@ -65,13 +65,13 @@
         <div class="d-flex col-md-6 flex-column text-center">
           <div class="fw-semibold">ID Card</div>
           <div class="border rounded-3">
-            <%= image_tag @user.id_card, class: 'user-info-card rounded-3' %>
+            <%= image_tag @user.user_summary&.id_card, class: 'user-info-card rounded-3' %>
           </div>
         </div>
         <div class="d-flex col-md-6 flex-column text-center">
           <div class="fw-semibold">Bar Concil Card</div>
           <div class="border rounded-3">
-            <%= image_tag @user.bar_concil_card, class: 'user-info-card rounded-3' %>
+            <%= image_tag @user.user_summary&.bar_concil_card, class: 'user-info-card rounded-3' %>
           </div>
         </div>
       </div>

@@ -4,8 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :qualification, :experience, :description, :email, :province, :district,
-            :tehsil_bar, :avatar, :bar_concil_card, :id_card, presence: true
+  validates :name, :email, :avatar, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :validate_user_services_uniqueness, on: :create
 
@@ -22,13 +21,12 @@ class User < ApplicationRecord
   PROVINCES = ['Punjab', 'Sindh', 'Khyber Pakhtunkhwa', 'Balochistan'].freeze
 
   has_one_attached :avatar
-  has_one_attached :id_card
-  has_one_attached :bar_concil_card
-  has_one :user_summaries, dependent: :destroy
+  has_one :user_summary, dependent: :destroy
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
 
   accepts_nested_attributes_for :user_services, allow_destroy: true
+  accepts_nested_attributes_for :user_summary
 
   default_scope { order(created_at: :asc) }
   scope :unverified, -> { where(verified_at: nil) }

@@ -48,6 +48,6 @@ class UsersController < ApplicationController
   end
 
   def tehsil_bar_search(tehsil_bar)
-    @users = @users.where('tehsil_bar ILIKE ?', "%#{tehsil_bar}%")
+    @users = @users.joins(:user_summary).where('user_summaries.tehsil_bar ILIKE ?', "%#{tehsil_bar}%")
   end
 end

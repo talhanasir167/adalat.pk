@@ -1,8 +1,8 @@
 <div class="hover-transition">
   <div class="position-relative">
     <%= image_tag user.user_avatar, class: 'size-19rem grayscale' %>
-    <% if user.verified_at.present? %>
-      <i class="bi bi-patch-check gredient-text fs-1 position-absolute right-1rem"></i>
+    <% if user.user_summary&.verified_at.present? %>
+      <i class="bi bi-award gredient-text fs-1 position-absolute right-1rem"></i>
     <% end %>
   </div>
   <div class="position-relative bg-white mx-auto text-center p-3 float-div">

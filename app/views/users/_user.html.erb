@@ -4,7 +4,7 @@
     <div class="align-self-center ms-3">
       <div>
         <span class="fw-bold fs-2"><%= user.name %></span>
-        <% if user.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span> <% end %>
+        <% if user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span> <% end %>
       </div>
       <div>
         <% user.services.each do |service| %>
@@ -12,7 +12,7 @@
         <% end %>
       </div>
       <div class="fs-14px">
-        <span> <%= user.qualification %></span> | <span><%= user.experience %> year of experience</span>
+        <span> <%= user.user_summary&.qualification %></span> | <span><%= user.user_summary&.experience %> year of experience</span>
       </div>
     </div>
   </div>
@@ -21,15 +21,15 @@
     <table class="fs-small">
       <tr>
         <td>Province</td>
-        <td  class="text-secondary ps-3"><%= user.province %></td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.province %></td>
       </tr>
       <tr>
         <td>District</td>
-        <td  class="text-secondary ps-3"><%= user.district %></td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.district %></td>
       </tr>
       <tr>
         <td>Tehsil Bar</td>
-        <td  class="text-secondary ps-3"><%= user.tehsil_bar %></td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.tehsil_bar %></td>
       </tr>
     </table>
   </div>

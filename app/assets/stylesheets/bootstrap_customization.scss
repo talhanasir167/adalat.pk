@@ -11,6 +11,7 @@
 
 select.form-select:focus {
   box-shadow: none !important;
+  border-color: #D2A66B !important;
 } 
 
 select.form-select {
@@ -32,4 +33,12 @@ select.form-select {
   border-left: 0 !important;
   border-top: 0 !important;
   transform: rotate(45deg) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
 }
