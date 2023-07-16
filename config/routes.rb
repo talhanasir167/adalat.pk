@@ -14,4 +14,6 @@ Rails.application.routes.draw do
       post 'search'
     end
   end
+
+  resources :services, only: %i[index show]
 end

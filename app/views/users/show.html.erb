@@ -80,23 +80,7 @@
   <div class="col-md-4">
     <div class="p-5 text-gold transparent-bg3">
       <div class="fw-bolder mb-5 h4 text-center">Contact <%= @user.name %></div>
-      <%= form_with url: root_path, method: :post, id: 'guest-user-feedback' do |form| %>
-        <div class="field">
-          <%= form.text_field :name, placeholder: 'Enter Your Full Name', class: 'form-control mb-3 rounded-0', required: true %>
-        </div>
-        <div class="field">
-          <%= form.telephone_field :mobile_number, placeholder: 'Mobile No.(eg: +920300123456)', class: 'form-control mb-3 rounded-0', required: true %>
-        </div>
-        <div class="field">
-          <%= form.email_field :email, placeholder: 'example@gmail.com', class: 'form-control mb-3 rounded-0', required: true %>
-        </div>
-        <div class="field">
-          <%= form.text_area(:feedback, rows: '3', class: "form-control mb-3 rounded-0", required: true, placeholder: "Your message") %>
-        </div>
-        <div class="field">
-          <%= form.submit 'Send Your Message', class: "btn btn-gold text-white rounded-0 w-100" %>
-        </div>
-      <% end %>
+      <%= render 'guest_user_contact_form' %>
     </div>
   </div>
 </div>

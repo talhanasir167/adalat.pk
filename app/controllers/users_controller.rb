@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def search
     @users = User.lawyer
-    name_search(params[:name]) if params[:name_search].present?
+    name_search(params[:name_search]) if params[:name_search].present?
     service_search(params[:service_id]) if params[:service_id].present?
     tehsil_bar_search(params[:tehsil_bar]) if params[:tehsil_bar].present?
     respond_to do |format|
