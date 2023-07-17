@@ -42,7 +42,7 @@
     </div>
 
     <div class="mt-3" data-controller="users">
-      <div class="read-less" id="short-description"><%= @user.user_summary&.description %></div>
+      <div class="read-less" id="short-description"><%= @user.user_summary&.description.html_safe %></div>
       <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more">Read More</a>
       <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
     </div>

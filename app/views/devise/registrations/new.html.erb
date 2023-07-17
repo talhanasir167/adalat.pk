@@ -65,9 +65,10 @@
                     </div>
                   </div>
 
-                  <div class="field">
+                  <div class="field" data-controller="quill">
                     <%= summary.label :description, class: 'form-label text-muted' %>
-                    <%= summary.text_area(:description, rows: '3', class: "form-control mb-3 rounded-0", required: true, placeholder: "Tell us about yourself") %>
+                    <div data-quill-target="quillEditor"></div>
+                    <%= summary.hidden_field :description, id: "user-description", required: true %>
                   </div>
                 </div>
               </div>
