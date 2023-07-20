@@ -40,7 +40,7 @@ form_block = proc do
       f.input :name
       f.input :description
       f.input :icon
-      f.input :avatar, as: :file
+      f.input :avatar, as: :file, label: 'Service Image'
     end
     f.actions
   end

@@ -32,6 +32,7 @@ class User < ApplicationRecord
   default_scope { order(created_at: :asc) }
   scope :unverified, -> { joins(:user_summary).where(user_summary: { verified_at: nil }) }
   scope :verified, -> { joins(:user_summary).where.not(user_summary: { verified_at: nil }) }
+  scope :created_today, -> { where('Date(created_at) = ?', Time.zone.today) }
 
   def user_avatar
     avatar.attached? && avatar || 'user_default_avatar.png'

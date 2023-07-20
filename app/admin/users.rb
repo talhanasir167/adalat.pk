@@ -63,24 +63,27 @@ form_block = proc do
   form do |f|
     f.inputs do
       f.input :name
-      f.input :qualification
-      f.input :experience
-      f.input :description
-      f.input :province
-      f.input :district
-      f.input :tehsil_bar
-      f.input :verified_at
+      f.has_many :user_summary, heading: 'User details', new_record: false do |t|
+        t.input :qualification
+        t.input :experience
+        t.input :description
+        t.input :province
+        t.input :district
+        t.input :tehsil_bar
+        t.input :verified_at
+      end
       f.input :role
-      f.input :id_card, as: :file
-      f.input :bar_concil_card, as: :file
+      f.input :avatar, as: :file, label: 'Profile Picture'
+      f.input :id_card, as: :file, label: 'ID Card Picture'
+      f.input :bar_concil_card, as: :file, label: 'Bar-concil Card Picture'
     end
     f.actions
   end
 end
 
 ActiveAdmin.register User do
-  permit_params :name, :qualification, :experience, :description,
-                :province, :district, :tehsil_bar, :verified_at, :role, :id_card, :bar_concil_card
+  permit_params :name, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district,
+    tehsil_bar verified_at id_card bar_concil_card _destroy]
   instance_eval(&index_block)
   instance_eval(&filter_block)
   instance_eval(&scope_block)
