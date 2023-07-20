@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_user, only: %i[show verify]
-  attr_accessor :unhashed_password
 
   def index
     @users = User.lawyer
