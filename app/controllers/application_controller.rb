@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 
   def devise_account_params
     [:name, :password, :avatar,
-     { user_summary_attributes: %i[description experience qualification province district tehsil_bar id_card bar_concil_card] },
+     { user_summary_attributes: %i[id description experience qualification province district tehsil_bar id_card bar_concil_card] },
      { user_services_attributes: %i[id service_id service_proficiency _destroy] }]
   end
 end

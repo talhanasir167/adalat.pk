@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :set_user, only: %i[show verify]
+  attr_accessor :unhashed_password
 
   def index
     @users = User.lawyer
@@ -11,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def verify
-    if @user.update(verified_at: DateTime.now)
+    if @user.user_summary.update(verified_at: DateTime.now)
       UserMailer.notify_user_about_acount_verification(@user).deliver_later
       redirect_to @user, notice: 'Account has been verified successfully'
     else

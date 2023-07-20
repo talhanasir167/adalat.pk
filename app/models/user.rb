@@ -12,8 +12,9 @@ class User < ApplicationRecord
 
   ROLES = {
     lawyer: 0,
-    admin: 1,
-    owner: 2
+    client: 1,
+    admin: 2,
+    owner: 3
   }.freeze
 
   enum role: ROLES
@@ -29,8 +30,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :user_summary
 
   default_scope { order(created_at: :asc) }
-  scope :unverified, -> { where(verified_at: nil) }
-  scope :verified, -> { where.not(verified_at: nil) }
+  scope :unverified, -> { joins(:user_summary).where(user_summary: { verified_at: nil }) }
+  scope :verified, -> { joins(:user_summary).where.not(user_summary: { verified_at: nil }) }
 
   def user_avatar
     avatar.attached? && avatar || 'user_default_avatar.png'

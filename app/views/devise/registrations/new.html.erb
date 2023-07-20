@@ -19,114 +19,107 @@
         </div>
       </div>
 
-      <div class="row" data-controller="users">
-        <div class="col-md field">
-          <%= f.label :joining_as, class: 'form-label text-muted' %><br />
-          <%= f.select :role, ['Lawyer', 'Client'], {}, class: "form-select rounded-0", id: 'user-roles' %>
-        </div>
-
-        <div class="col-md field">
+      <div class="row">
+        <div class="field">
           <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
           <%= f.file_field :avatar, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
         </div>
       </div>
 
       <% if resource.role == 'lawyer' %>
-        <div id="user-summary-form">
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <%= f.fields_for(:user_summary, resource.build_user_summary) do |summary| %>
-            <div class="accordion-item border mb-3 shadow-sm">
-              <h2 class="accordion-header" id="flush-headingOne">
-                <button class="accordion-button text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
-                  <i class="bi bi-info-circle me-1"></i> Lawyer Details
-                </button>
-              </h2>
-              <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body fs-14px border-top text-start px-lg-5">
-                  <div class="row">
-                    <div class="col-md field">
-                      <%= summary.label :qualification, class: 'form-label text-muted' %><br />
-                      <%= summary.text_field :qualification, placeholder: 'LLM', required: true, class: 'form-control mb-3 rounded-0' %>
-                    </div>
-                    <div class="col-md field">
-                      <%= summary.label :experience, class: 'form-label text-muted' %><em class="text-muted">(in years)</em><br />
-                      <%= summary.number_field :experience, placeholder: '5 Years', required: true, step: 0.5, class: 'form-control mb-3 rounded-0' %>
-                    </div>
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <%= f.fields_for(:user_summary, resource.build_user_summary) do |summary| %>
+          <div class="accordion-item border mb-3 shadow-sm">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <i class="bi bi-info-circle me-1"></i> Lawyer Details
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body fs-14px border-top text-start px-lg-5">
+                <div class="row">
+                  <div class="col-md field">
+                    <%= summary.label :qualification, class: 'form-label text-muted' %><br />
+                    <%= summary.text_field :qualification, placeholder: 'LLM', required: true, class: 'form-control mb-3 rounded-0' %>
                   </div>
-                  <div class="row">
-                    <div class="col-md field">
-                      <%= summary.label :id_card_picture, class: 'form-label text-muted' %><br />
-                      <%= summary.file_field :id_card, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
-                    </div>
-
-                    <div class="col-md field">
-                      <%= summary.label :bar_concil_card_picture, class: 'form-label text-muted' %><br />
-                      <%= summary.file_field :bar_concil_card, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
-                    </div>
+                  <div class="col-md field">
+                    <%= summary.label :experience, class: 'form-label text-muted' %><em class="text-muted">(in years)</em><br />
+                    <%= summary.number_field :experience, placeholder: '5 Years', required: true, step: 0.5, class: 'form-control mb-3 rounded-0' %>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md field">
+                    <%= summary.label :id_card_picture, class: 'form-label text-muted' %><br />
+                    <%= summary.file_field :id_card, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
                   </div>
 
-                  <div class="field" data-controller="quill">
-                    <%= summary.label :description, class: 'form-label text-muted' %>
-                    <div data-quill-target="quillEditor"></div>
-                    <%= summary.hidden_field :description, id: "user-description", required: true %>
+                  <div class="col-md field">
+                    <%= summary.label :bar_concil_card_picture, class: 'form-label text-muted' %><br />
+                    <%= summary.file_field :bar_concil_card, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
                   </div>
+                </div>
+
+                <div class="field" data-controller="quill">
+                  <%= summary.label :description, class: 'form-label text-muted' %>
+                  <div data-quill-target="quillEditor"></div>
+                  <%= summary.hidden_field :description, id: "user-description", required: true %>
                 </div>
               </div>
             </div>
-            <div class="accordion-item border mb-3 shadow-sm">
-              <h2 class="accordion-header" id="flush-headingTwo">
-                <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                  <i class="bi bi-house me-1"></i> Address Information
-                </button>
-              </h2>
-              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body fs-14px border-top text-start px-lg-5">
-                  <div class="row">
-                    <div class="col-md field">
-                      <%= summary.label :province, class: 'form-label text-muted' %><br />
-                      <%= summary.select :province, User::PROVINCES, {}, class: "form-select rounded-0" %>
-                    </div>
-
-                    <div class="col-md field">
-                      <%= summary.label :district, class: 'form-label text-muted' %><br />
-                      <%= summary.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3 rounded-0' %>
-                    </div>
+          </div>
+          <div class="accordion-item border mb-3 shadow-sm">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <i class="bi bi-house me-1"></i> Address Information
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body fs-14px border-top text-start px-lg-5">
+                <div class="row">
+                  <div class="col-md field">
+                    <%= summary.label :province, class: 'form-label text-muted' %><br />
+                    <%= summary.select :province, User::PROVINCES, {}, class: "form-select rounded-0" %>
                   </div>
-                  <div class="field">
-                    <%= summary.label :tehsil_bar, class: 'form-label text-muted' %>
-                    <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", required: true, placeholder: "Tehsil Bar" %>
+
+                  <div class="col-md field">
+                    <%= summary.label :district, class: 'form-label text-muted' %><br />
+                    <%= summary.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3 rounded-0' %>
                   </div>
                 </div>
+                <div class="field">
+                  <%= summary.label :tehsil_bar, class: 'form-label text-muted' %>
+                  <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", required: true, placeholder: "Tehsil Bar" %>
+                </div>
               </div>
-            </div> 
-            <% end %>
-            <div class="accordion-item border mb-3 shadow-sm">
-              <h2 class="accordion-header" id="flush-headingThree">
-                <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                  <i class="bi bi-patch-question me-1"></i> Add Services
-                </button>
-              </h2>
-              <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body fs-14px border-top text-start px-lg-5">
-                  <div data-controller="services" data-service-options="<%= Service.all.pluck(:name, :id).to_json %>" 
-                      data-service-index="0" data_proficiency_levels="<%= UserService::LEVELS.keys.to_json %>">
-                    <%= f.fields_for(:user_services, resource.user_services.build) do |service| %>
-                      <div class="row service">
-                        <div class="col-md field">
-                          <%= service.label :service, class: 'form-label text-muted' %><br />
-                          <%= service.select :service_id, Service.all.pluck(:name, :id), {}, class: "form-select rounded-0" %>
-                        </div>
-                        <div class="col-md field">
-                          <%= service.label :service_proficiency, class: 'form-label text-muted' %><br />
-                          <div class="d-flex">
-                            <%= service.select :service_proficiency, UserService::LEVELS.keys, {}, class: 'form-select rounded-0' %>
-                          </div>
+            </div>
+          </div> 
+          <% end %>
+          <div class="accordion-item border mb-3 shadow-sm">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <i class="bi bi-patch-question me-1"></i> Add Services
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body fs-14px border-top text-start px-lg-5">
+                <div data-controller="services" data-service-options="<%= Service.all.pluck(:name, :id).to_json %>" 
+                    data-service-index="0" data_proficiency_levels="<%= UserService::LEVELS.keys.to_json %>">
+                  <%= f.fields_for(:user_services, resource.user_services.build) do |service| %>
+                    <div class="row service">
+                      <div class="col-md field">
+                        <%= service.label :service, class: 'form-label text-muted' %><br />
+                        <%= service.select :service_id, Service.all.pluck(:name, :id), {}, class: "form-select rounded-0" %>
+                      </div>
+                      <div class="col-md field">
+                        <%= service.label :service_proficiency, class: 'form-label text-muted' %><br />
+                        <div class="d-flex">
+                          <%= service.select :service_proficiency, UserService::LEVELS.keys, {}, class: 'form-select rounded-0' %>
                         </div>
                       </div>
-                    <% end %>
-                    <div class="text-end add-service-btn">
-                      <a  data-action="services#add_service" class = "btn text-success mt-3 rounded-0" ><i class="bi bi-plus-lg"></i> Add more</a>
                     </div>
+                  <% end %>
+                  <div class="text-end add-service-btn">
+                    <a  data-action="services#add_service" class = "btn text-success mt-3 rounded-0" ><i class="bi bi-plus-lg"></i> Add more</a>
                   </div>
                 </div>
               </div>

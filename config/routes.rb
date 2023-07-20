@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations'
+    registrations: 'users/registrations'
   }
 
   resources :users, only: %i[index show] do

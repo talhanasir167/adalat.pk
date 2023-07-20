@@ -51,7 +51,9 @@
                   <% if current_user.admin? %>
                     <li class="hover-pad"><%= link_to '<i class="bi bi-person-check-fill"></i> Admin Pannel'.html_safe, admin_root_path, class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
                   <% end %>
-                  <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <% if current_user.lawyer? %>
+                    <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <% end %>
                   <li class="hover-pad"><%= link_to '<i class="bi bi-gear"></i> Update Account'.html_safe, edit_user_registration_path(current_user), class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
                   <li class="hover-pad"><hr class="dropdown-divider"></li>
                   <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn text' %></li>

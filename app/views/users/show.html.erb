@@ -60,7 +60,7 @@
       </div>
     </div>
 
-    <% if user_signed_in? && current_user.admin? %>
+    <% if user_signed_in? && ( current_user.admin? || current_user == @user ) %>
       <div class="border-top py-2 row mx-0" >
         <div class="d-flex col-md-6 flex-column text-center">
           <div class="fw-semibold">ID Card</div>
