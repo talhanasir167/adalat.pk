@@ -20,7 +20,7 @@
     <div class="col-md-8">
       <div class="fw-bold fs-1"><%= @service.name %> Law</div>
       <div class="my-3 border-b-gredient pb-5" data-controller="users">
-        <div class="read-less" id="short-description"><%= @service.description %></div>
+        <div class="read-less" id="short-description"><%= @service.description.html_safe %></div>
         <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more">Read More</a>
         <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
       </div>

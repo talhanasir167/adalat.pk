@@ -1,5 +1,5 @@
 class Service < ApplicationRecord
-  validates :name, :icon, presence: true
+  validates :name, :icon, :summary, :description, :avatar, presence: true
 
   has_one_attached :avatar
   has_many :user_services

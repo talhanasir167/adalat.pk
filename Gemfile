@@ -50,6 +50,8 @@ gem 'activeadmin'
 
 gem 'quill-editor-rails'
 
+gem 'activeadmin_quill_editor'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 

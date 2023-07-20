@@ -8,7 +8,6 @@ index_block = proc do
     column('Experience') { |user| user.user_summary.experience if user.user_summary.present? }
     column('Verified at') { |user| user.user_summary.verified_at if user.user_summary.present? }
     column :role
-    column :created_at
     actions
   end
 end
@@ -33,6 +32,20 @@ scope_block = proc do
   scope 'Clients', :client
   scope 'Verified Lawyers', :verified
   scope 'Unverified Lawyers', :unverified
+end
+
+tollbar_block = proc do
+  [
+    [{ 'font': [] }],
+    %w[bold italic underline strike],
+    ['blockquote'],
+    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    [{ 'color': [] }, { 'background': [] }],
+    [{ 'align': [] }],
+    ['link'],
+    ['clean']
+  ]
 end
 
 user_summary_attributes = proc do
@@ -66,7 +79,7 @@ form_block = proc do
       f.has_many :user_summary, heading: 'User details', new_record: false do |t|
         t.input :qualification
         t.input :experience
-        t.input :description
+        t.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: instance_eval(&tollbar_block) }, placeholder: 'User description...', theme: 'snow' } } }
         t.input :province
         t.input :district
         t.input :tehsil_bar
