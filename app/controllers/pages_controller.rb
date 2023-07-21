@@ -4,4 +4,7 @@ class PagesController < ApplicationController
     @services = Service.all
     @users = User.lawyer.first(4)
   end
+
+  def contact
+  end
 end

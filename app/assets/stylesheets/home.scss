@@ -10,6 +10,7 @@
 
 .user-profile-pic {
   width: 10rem;
+  height: 10rem;
   max-height: 10rem;
   max-width: 100%;
 }
@@ -202,9 +203,7 @@
   .gredient-line::before {
     left: 13.5vw;
   }
-}
 
-.contact { 
   .gredient-line > span {
     left: 17vw;
   }
