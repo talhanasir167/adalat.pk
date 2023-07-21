@@ -20,7 +20,7 @@ div.register {
 .page-title {
   padding: 208px 0 99px;
   background-color: #d5aa6d;
-  background-image: url(/assets/slider1.jpg);
+  background-image: url(asset_path('slider1.jpg'));
   background-position: 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
