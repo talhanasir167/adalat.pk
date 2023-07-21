@@ -8,13 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
           <li class="nav-item">
-            <%= link_to 'Home', root_path, class: "nav-link active px-lg-4 fw-semibold fs-14px" %>
+            <%= link_to 'Home', root_path, class: "nav-link px-lg-4 fw-semibold fs-14px #{ home_page?(params[:controller], params[:action]) }" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Lawyers', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px" %>
+            <%= link_to 'Lawyers', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px #{ lawyers_page?(params[:controller]) }" %>
           </li>
           <li class="nav-item">
-            <%= link_to 'Services', users_path, class: "nav-link px-lg-4 fw-semibold fs-14px" %>
+            <%= link_to 'Services', services_path, class: "nav-link px-lg-4 fw-semibold fs-14px #{ services_page?(params[:controller]) }" %>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle fs-14px px-lg-4 fw-semibold" href="#" id="navbarDropdownMenuLink2" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -51,7 +51,9 @@
                   <% if current_user.admin? %>
                     <li class="hover-pad"><%= link_to '<i class="bi bi-person-check-fill"></i> Admin Pannel'.html_safe, admin_root_path, class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
                   <% end %>
-                  <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <% if current_user.lawyer? %>
+                    <li class="hover-pad"><%= link_to '<i class="bi bi-person-bounding-box"></i> My Profile'.html_safe, current_user, class: "dropdown-item nav-link mx-1 text-dark mb-2" %></li>
+                  <% end %>
                   <li class="hover-pad"><%= link_to '<i class="bi bi-gear"></i> Update Account'.html_safe, edit_user_registration_path(current_user), class: "dropdown-item nav-link mx-1 text-dark mb-2"%></li>
                   <li class="hover-pad"><hr class="dropdown-divider"></li>
                   <li><%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'btn text' %></li>

@@ -17,3 +17,57 @@
 .w-15rem {
   width: 15rem;
 }
+
+.gredient-border {
+  content: '';
+  height: 6px;
+  background: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
+  width: 3rem;
+  border-radius: 0 0 10px 10px;
+  margin: auto;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.right-1rem {
+  right: 1rem;
+}
+
+.fs-small {
+  font-size: small;
+}
+
+.read-less {
+  height: 44px;
+  overflow: hidden;
+}
+
+.read-more {
+  height: auto;
+}
+
+.chat-link {
+  bottom: 40px;
+  left: 25px;
+  z-index: 1023;
+
+  i {
+    background: #25D366;
+  }
+}
+
+.border-b-gredient {
+  border-bottom: 2px solid #d2b791;
+}
+
+.w-fit-content {
+  width: fit-content;
+}
+
+.service-icon {
+  font-size: 4rem !important;
+}
+
+.h-20rem {
+  height: 20.5rem;
+}

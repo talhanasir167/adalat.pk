@@ -1,17 +1,40 @@
-<div class="shadow rounded-4 w-15rem mx-4 mb-4">
-  <div class="text-center mt-3">
-    <%= image_tag user.user_avatar, class: 's-10rem rounded-4 shadow-sm rounded-circle' %>
+<div class="mb-5 pb-5 border-b-gredient">
+  <div class="d-flex mb-3">
+    <div><%= image_tag user.user_avatar, class: 'rounded-circle s-10rem' %></div>
+    <div class="align-self-center ms-3">
+      <div>
+        <span class="fw-bold fs-2"><%= user.name %></span>
+        <% if user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span> <% end %>
+      </div>
+      <div>
+        <% user.services.each do |service| %>
+          <span class="fs-14px"> <%= service.name %> Law <span>|</span> </span>
+        <% end %>
+      </div>
+      <div class="fs-14px">
+        <span> <%= user.user_summary&.qualification %></span> | <span><%= user.user_summary&.experience %> year of experience</span>
+      </div>
+    </div>
   </div>
-  <div class="text-center fw-semibold pt-2">
-    <%= user.name %>
+  <div class="d-flex mb-3 p-4 shadow-sm w-fit-content">
+    <div class="me-3"><i class="bi bi-building fs-1 gredient-text"></i></div>
+    <table class="fs-small">
+      <tr>
+        <td>Province</td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.province %></td>
+      </tr>
+      <tr>
+        <td>District</td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.district %></td>
+      </tr>
+      <tr>
+        <td>Tehsil Bar</td>
+        <td  class="text-secondary ps-3"><%= user.user_summary&.tehsil_bar %></td>
+      </tr>
+    </table>
   </div>
-  
-  <div class="border-top border-bottom p-2 my-2" >
-    <div><i class="bi bi-geo-alt fw-semibold"></i> <%= user.province %> / <%= user.district %> / <%= user.tehsil_bar %></div>
-    <div><span class="fw-semibold"><i class="bi bi-mortarboard-fill"></i> </span><%= user.qualification %></div>
-    <div><span class="fw-semibold">Experience: </span><%= user.experience %></div>
-  </div>
-  <div class="text-center pb-2">
-    <%= link_to 'Contact Now', user, class: 'btn btn-primary' %>
+  <div class="d-flex">
+    <%= link_to 'View Profile', user, class: 'btn-outline-secondary btn w-100 me-2' %>
+    <%= link_to 'Contact Now', contact_path, class: 'btn-secondary btn w-100 ms-2' %>
   </div>
 </div>

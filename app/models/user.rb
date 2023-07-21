@@ -1,11 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :lockable, :timeoutable, :trackable and :omniauthable
+  # :confirmable :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+         :recoverable, :rememberable, :validatable
 
-  validates :name, :qualification, :experience, :description, :email, :province, :district,
-            :tehsil_bar, :avatar, :bar_concil_card, :id_card, presence: true
+  validates :name, :email, :avatar, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :validate_user_services_uniqueness, on: :create
 
@@ -13,8 +12,9 @@ class User < ApplicationRecord
 
   ROLES = {
     lawyer: 0,
-    admin: 1,
-    owner: 2
+    client: 1,
+    admin: 2,
+    owner: 3
   }.freeze
 
   enum role: ROLES
@@ -22,15 +22,17 @@ class User < ApplicationRecord
   PROVINCES = ['Punjab', 'Sindh', 'Khyber Pakhtunkhwa', 'Balochistan'].freeze
 
   has_one_attached :avatar
-  has_one_attached :id_card
-  has_one_attached :bar_concil_card
+  has_one :user_summary, dependent: :destroy
   has_many :user_services, dependent: :destroy
   has_many :services, through: :user_services
 
   accepts_nested_attributes_for :user_services, allow_destroy: true
+  accepts_nested_attributes_for :user_summary
 
-  scope :unverified, -> { where(verified_at: nil) }
-  scope :verified, -> { where.not(verified_at: nil) }
+  default_scope { order(created_at: :asc) }
+  scope :unverified, -> { joins(:user_summary).where(user_summary: { verified_at: nil }) }
+  scope :verified, -> { joins(:user_summary).where.not(user_summary: { verified_at: nil }) }
+  scope :created_today, -> { where('Date(created_at) = ?', Time.zone.today) }
 
   def user_avatar
     avatar.attached? && avatar || 'user_default_avatar.png'

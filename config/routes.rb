@@ -3,12 +3,19 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users, controllers: {
-    confirmations: 'users/confirmations'
+    registrations: 'users/registrations'
   }
 
   resources :users, only: %i[index show] do
     member do
       get 'verify'
     end
+    collection do
+      post 'search'
+    end
   end
+
+  get '/contact', to: 'pages#contact', as: 'contact'
+
+  resources :services, only: %i[index show]
 end

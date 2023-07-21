@@ -1,0 +1,34 @@
+<div class="page-title">
+  <div class="text-white fw-bold h1"><%= @service.name %> Law</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span class="gredient-text">
+      <%= link_to 'Services', services_path, class: 'text-decoration-none' %> >
+      <%= @service.name %> Law
+    </span>
+  </div>
+</div>
+
+<div>
+  <div class="row mx-0 p-lg-5">
+    <div class="col-md-4">
+      <div class="transparent-bg3 p-5">
+        <div class="fw-bold fs-3 text-center mb-3">Contact Now</div>
+        <%= render 'users/guest_user_contact_form' %>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="fw-bold fs-1"><%= @service.name %> Law</div>
+      <div class="my-3 border-b-gredient pb-5" data-controller="users">
+        <div class="read-less" id="short-description"><%= @service.description.html_safe %></div>
+        <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more">Read More</a>
+        <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
+      </div>
+
+      <div>
+        <div class="text-center fw-bold fs-2 mb-3"><span class="gredient-text"><%= @service.users.count%></span> lawyers providing this service</div>
+        <%= render @service.users%>
+      </div>
+    </div>
+  </div>
+</div>

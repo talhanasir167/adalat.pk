@@ -6,4 +6,16 @@ module PagesHelper
   def add_style(element, style)
     element.insert(-7, style)
   end
+
+  def home_page?(controller, action)
+    controller == 'pages' && action == 'home' && 'active'
+  end
+
+  def lawyers_page?(controller)
+    controller == 'users' && 'active'
+  end
+
+  def services_page?(controller)
+    controller == 'services' && 'active'
+  end
 end

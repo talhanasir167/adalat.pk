@@ -1,0 +1,23 @@
+<div class="page-title">
+  <div class="text-white fw-bold h1">Our Services</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span class="gredient-text">Services</span>
+  </div>
+</div>
+
+<div>
+  <div class="bg-img">
+    <div class="px-10vw text-center py-5 transparent-bg2"> 
+      <div class="gredient-text font-monospace">Services</div>
+      <div class="d-flex justify-content-center my-3">
+        <div class="fw-bold text-white w-33rem h2">We are here to fight against any violance with 
+        <span class="gredient-text">experience</span></div>
+      </div>
+      <div class="gredient-border"></div>
+      <div class="flex-d">
+        <%= render @services %>
+      </div>
+    </div>
+  </div>
+<div>
