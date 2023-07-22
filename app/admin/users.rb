@@ -67,7 +67,7 @@ show_block = proc do
       row :name
       instance_eval(&user_summary_attributes) if user.user_summary.present?
       row('User Profile') { |user| image_tag user.user_avatar, width: 100, height: 80 }
-      row :services
+      row :services if user.lawyer?
       row :created_at
     end
   end
