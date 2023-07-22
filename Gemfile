@@ -52,6 +52,8 @@ gem 'quill-editor-rails'
 
 gem 'activeadmin_quill_editor'
 
+gem 'cloudinary'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
