@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     @users = User.lawyer.first(4)
   end
 
-  def contact
-  end
+  def contact; end
+
+  def faqs; end
 end

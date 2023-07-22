@@ -1,0 +1,114 @@
+<div class="page-title mb-5">
+  <div class="text-white fw-bold h1">Frequently Asked Questions</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span class="gredient-text">FAQ's </span>
+  </div>
+</div>
+
+<div class="p-5 text-center">
+  <div class="fs-2 fw-lighter mb-3">Frequently <strong> Asked Questions </strong></div>
+  <div class="d-flex justify-content-center mb-4">
+    <div class="w-50rem">Have a different question and can't find the answer you're looking for? Reach out to our support team by 
+       <%= link_to 'sending us a message', contact_path, class: 'text-decoration-none text-gold' %> and we'll get back to you as soon as we can.
+    </div>
+  </div>
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion-item border mb-3 shadow-sm">
+      <h2 class="accordion-header" id="flush-headingOne">
+        <button class="accordion-button text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="true" aria-controls="flush-collapseOne">
+          <i class="bi bi-patch-question me-1"></i> How do I create an account as a lawyer on the platform?
+        </button>
+      </h2>
+      <div id="flush-collapseOne" class="accordion-collapse collapse show" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body fs-14px border-top text-start px-lg-5">
+          <p>Creating an account as a lawyer on our platform is a straightforward process. Simply follow these steps:</p>
+          <ol>
+            <li>Click on <%= link_to 'Register Now', new_user_registration_path, class: 'text-gold text-decoration-none' %> </li>
+            <li>Fill in the required information about your identity, location, and area's of experience 
+              <p class="mb-0"><span class="fw-semibold">Note: </span>All fields in the sign up form are required.</p>
+            </li>
+            <li>Click the "Sign up" button to complete the registration process.</li>
+          </ol>
+          <p>After you have successfully created your account, you will be able to log in and access your lawyer account 
+             on our platform. However, please note that your account will initially appear on the lawyers' page as pending
+             verification.
+          </p>
+          <p>Our admin team will carefully review the information you provided during registration to ensure its accuracy and 
+             legitimacy. Once your identity and other details are confirmed, our team will mark your account as a verified 
+             lawyer. You will receive an email notification informing you that your account has been verified, and a 
+             <span class="badge btn-gold align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span>
+            badge will be prominently displayed on your profile.
+          </p>
+          <p>
+            We take this verification process seriously to maintain the integrity and trustworthiness of our platform, 
+            both for lawyers and clients. This badge serves as a symbol of your verified status, signifying to potential 
+            clients that you are a reputable legal professional recognized by our law firm. Congratulations on becoming 
+            a verified lawyer on our platform, and thank you for choosing to be a part of our community of legal experts!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border mb-3 shadow-sm">
+      <h2 class="accordion-header" id="flush-headingTwo">
+        <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+          <i class="bi bi-patch-question me-1"></i> As a client, how can I find lawyers in my area or province?
+        </button>
+      </h2>
+      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body fs-14px border-top">
+          <p class="text-start">We've designed our platform to make it easy for clients like you to find qualified lawyers in your 
+             specific area or province. To locate lawyers who can assist you with your legal needs</p>
+          <ul class="text-start">Follow these simple steps:
+            <li>Click on <%= link_to 'Lawyers', users_path, class: 'text-decoration-none text-gold' %></li>
+            <li>On lawyers page, you can filter lawyers based on your requirements</li>
+            <li>Look out for the <span class="badge btn-gold align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span>
+                badge displayed on a lawyer's profile. This badge indicates that the lawyer's credentials have been verified 
+                by our law firm, offering you an additional layer of trust and assurance.</li>
+            <li>When you find a lawyer who meets your requirements, you can easily contact them through our platform. 
+                Click on the provided contact options to initiate communication and discuss your legal concerns.</li>
+          </ul>
+          <div class="text-start"><span class="fw-semibold gredient-text">Remember</span>, our support team is available 
+            <span class="fw-semibold gredient-text">24 hours </span>a day to assist you with any queries or concerns you may 
+               have during your search for legal representation. We are committed to helping you find the right lawyer 
+               to address your legal needs effectively.</div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border mb-3 shadow-sm">
+      <h2 class="accordion-header" id="flush-headingThree">
+        <button class="accordion-button collapsed text-dark fw-bold btn-light btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+          <i class="bi bi-patch-question me-1"></i> Is there any cost associated with contacting a lawyer or seeking initial consultation?
+        </button>
+      </h2>
+      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body text-start fs-14px border-top">
+          <p><span class="fw-semibold gredient-text">No, </span>there is no cost associated with contacting a lawyer or seeking an initial consultation through our 
+               platform. We provide a free-of-cost consultation service to facilitate the process of connecting clients 
+               with experienced lawyers who can offer guidance on their legal matters.</p>
+          <p>
+            When you find a lawyer on our platform who matches your requirements, you can reach out to them using the 
+            contact options provided on their profile. Whether it's through email, phone, or any other preferred method 
+            of communication, you can initiate contact without incurring any charges.
+          </p>
+          <p>
+            During the initial consultation, you can discuss your legal concerns, inquire about the lawyer's expertise, 
+            and understand how they can assist you with your specific case. This preliminary discussion is intended to 
+            help you make an informed decision about proceeding with the lawyer's services.
+          </p>
+          <p>
+            However, please note that while the initial consultation is free, any subsequent legal services or 
+            representation that you decide to engage the lawyer for may have associated fees. The exact fee structure 
+            and terms will be discussed and agreed upon between you and the lawyer separately.
+          </p>
+          <p>
+            Our aim is to provide a seamless and transparent platform that promotes accessibility to legal assistance. 
+            We encourage you to take advantage of the free consultation service and find the right lawyer to guide you 
+            through your legal matters in Pakistan. If you have any further questions or need assistance, our support 
+            team is always available to help.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
