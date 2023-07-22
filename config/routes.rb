@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   get '/contact', to: 'pages#contact', as: 'contact'
+  get '/faqs', to: 'pages#faqs', as: 'faqs_page'
 
   resources :services, only: %i[index show]
 end
