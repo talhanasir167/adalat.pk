@@ -56,6 +56,16 @@
   }
 }
 
+.call-link {
+  bottom: 110px;
+  left: 25px;
+  z-index: 1023;
+
+  i {
+    background: #214F7B;
+  }
+}
+
 .border-b-gredient {
   border-bottom: 2px solid #d2b791;
 }
@@ -74,4 +84,8 @@
 
 .w-50rem {
   width: 50rem;
+}
+
+.h-40vw {
+  height: 40vw;
 }

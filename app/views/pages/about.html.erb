@@ -10,7 +10,7 @@
 
 <div class="transparent-bg3">
   <div class="px-10vw py-5">
-    <div class=" text-center gredient-text font-monospace mb-3">Our Mission</div>
+    <div class="text-center gredient-text font-monospace mb-3">Our Mission</div>
     <div>At Law Firm, we are a team of dedicated and experienced legal professionals committed to providing reliable and 
         effective legal solutions to individuals and businesses across Pakistan. Our firm was founded with a vision to 
         deliver high-quality legal services and guidance to clients, ensuring their rights are protected and their 
@@ -54,3 +54,41 @@
     </div>
   </div>
 </div>
+
+<% if @gallery_images.exists? %>
+  <div class="px-10vw mb-5">
+    <div class="text-center gredient-text font-monospace mb-3">Image Gallery</div>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <%= image_tag @gallery_images.first.avatar, class: 'd-block w-100 rounded-5 h-40vw' %>
+          <div class="carousel-caption">
+            <h5><%= @gallery_images.first.title %></h5>
+          </div>
+        </div>
+        <% @gallery_images.each_with_index do |gallery_img, index| %>
+          <% next if index.zero? %>
+          <div class="carousel-item">
+            <%= image_tag gallery_img.avatar, class: 'd-block w-100 rounded-5 h-40vw' %>
+            <div class="carousel-caption">
+              <h5><%= gallery_img.title %></h5>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+<% end %>
