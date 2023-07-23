@@ -31,6 +31,32 @@ class UsersController < ApplicationController
     end
   end
 
+  def contact_admin
+    name = params[:name]
+    email = params[:email]
+    mobile_number = params[:mobile_number]
+    messages = params[:feedback]
+    if name.present? && email.present? && mobile_number.present? && messages.present?
+      AdminMailer.new_message(name, email, mobile_number, messages).deliver_later if User.admin.exists?
+      flash.now[:notice] = 'Thank you for using Law Firm, We will come back to you soon!'
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.update('contact-page', partial: 'pages/home_partials/contact_us'),
+            turbo_stream.prepend('body_tag', partial: 'shared/toast')
+          ]
+        end
+      end
+    else
+      flash.now[:error] = 'There is a problem receiving your message'
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.prepend('body_tag', partial: 'shared/toast')
+        end
+      end
+    end
+  end
+
   private
 
   def set_user
