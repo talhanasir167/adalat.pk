@@ -1,0 +1,25 @@
+<div>
+  <!-- Header -->
+  <div style="padding: 1rem 2rem; text-align: center; color: white; font-size: xx-large; font-weight: bolder;
+              font-family: none; background: black;">
+    Law Firm
+  </div>
+
+  <!-- Body -->
+  <div>
+    <div>
+      <div style="padding: 1rem 1rem 1rem 0">Hi <strong><%= @admin.name %> </strong></div>
+      There is a new client message on Law Firm for lawyer <span style="font-weight: bold;"><%= @lawyer.name %></span>( <%= @lawyer.email %> )
+      <div style="padding: 10px; border: 1px solid #D2A66B; border-radius: 5px;">
+        <div style="padding-bottom: 0.5rem;"><span style="font-weight: bold;">Name: </span> <%= @name %></div>
+        <div style="padding-bottom: 0.5rem;"><span style="font-weight: bold;">Email: </span> <%= @email %></div>
+        <div style="padding-bottom: 0.5rem;"><span style="font-weight: bold;">Mobile Number: </span>
+          <a href="tel:<%= @mobile_number %>" class="text-decoration-none"><%= @mobile_number %></a></div>
+        <div style="padding-bottom: 0.5rem;"><span style="font-weight: bold;">Message: </span> <%= @message %></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div><h3> THANKS FOR USING Law Firm!</h3>
+</div>

@@ -80,7 +80,7 @@
   <div class="col-md-4">
     <div class="p-5 text-gold transparent-bg3">
       <div class="fw-bolder mb-5 h4 text-center">Contact <%= @user.name %></div>
-      <%= render 'guest_user_contact_form' %>
+      <div id="contact-page"><%= render 'guest_user_contact_form', user_id: @user.id %></div>
     </div>
   </div>
 </div>
