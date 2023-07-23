@@ -6,8 +6,8 @@ export default class extends Controller {
     event.preventDefault();
     event.target.classList.add('d-none');
     let desElement = document.getElementById('short-description');
-    desElement.classList.remove('read-less');
-    desElement.classList.add('read-more');
+    desElement.classList.remove('read-less', 'p-3');
+    desElement.classList.add('read-more', 'p-5');
     document.getElementById('read-less').classList.remove('d-none');
   }
 
@@ -15,8 +15,8 @@ export default class extends Controller {
     event.preventDefault();
     event.target.classList.add('d-none');
     let desElement = document.getElementById('short-description');
-    desElement.classList.remove('read-more');
-    desElement.classList.add('read-less');
+    desElement.classList.remove('read-more', 'p-5');
+    desElement.classList.add('read-less', 'p-3');
     document.getElementById('read-more').classList.remove('d-none');
   }
 }
