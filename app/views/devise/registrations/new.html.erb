@@ -20,7 +20,11 @@
       </div>
 
       <div class="row">
-        <div class="field">
+        <div class="col-md field">
+          <%= f.label :phone_number, class: 'form-label text-muted' %><br />
+          <%= f.telephone_field :phone_number, class: 'form-control mb-3 rounded-0', required: true %>
+        </div>
+        <div class="col-md field">
           <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
           <%= f.file_field :avatar, class: 'form-control mb-3 rounded-0', required: true, accept:'image/*' %>
         </div>
