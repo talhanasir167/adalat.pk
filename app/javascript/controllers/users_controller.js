@@ -2,10 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
 
-  connect() {
-    document.getElementById('user-roles').addEventListener('change', this.updateUserSummary);
-  }
-
   read_more(event) {
     event.preventDefault();
     event.target.classList.add('d-none');
