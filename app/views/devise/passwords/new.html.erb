@@ -1,4 +1,15 @@
-<div class="p-2 p-lg-5 mt-5" >
+<div class="page-title md-hide">
+  <div class="text-white fw-bold h1">Reset your password</div>
+  <div class="fw-semibold mt-4">
+    <span class="me-2 text-white"><%= link_to 'Home', root_path, class: 'text-decoration-none text-white' %> > </span>
+    <span class="gredient-text">
+      <%= link_to 'Sign in', new_user_session_path, class: 'text-decoration-none' %> >
+      Reset Password 
+    </span>
+  </div>
+</div>
+
+<div class="p-2 p-lg-5 mt-5 mt-lg-0" >
   <%= link_to '<i class="bi bi-arrow-return-left"></i> Back'.html_safe, :back, class: "gredient-text mb-3 rounded-0" %>
   <div class="register h-100 d-flex flex-column align-items-center justify-content-center p-4 max-form-width m-auto rounded-3" >
     <h2 class="fw-bolder">Forgot your password?</h2>
