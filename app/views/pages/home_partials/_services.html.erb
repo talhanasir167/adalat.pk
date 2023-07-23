@@ -6,6 +6,11 @@
       <span class="gredient-text">experience</span></div>
     </div>
     <div class="gredient-border"></div>
+
+    <div class="text-end">
+      <%= link_to '<i class="bi bi-arrow-right"></i> view all'.html_safe, services_path, class: 'text-decoration-none text-secondary' %>
+    </div>
+
     <div class="flex-d">
       <%= render @services %>
     </div>
