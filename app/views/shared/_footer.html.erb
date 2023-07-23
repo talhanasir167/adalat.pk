@@ -16,15 +16,15 @@
         <div class="fw-semibold mb-3">PAGES</div>
         <ul class="nav flex-column">
           <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-house-door"></i> Home'.html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-tags"></i> Services'.html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-tags"></i> Services'.html_safe, services_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
         </ul>
       </div>
       <div class="col-md">
         <div class="fw-semibold mb-3">ABOUT US</div>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-info-circle"></i> ABOUT US'.html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-envelope-fill"></i> CONTACT US'.html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to "<i class='bi bi-question-circle'></i> FAQ's".html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-info-circle"></i> ABOUT US'.html_safe, about_page_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-envelope-fill"></i> CONTACT US'.html_safe, contact_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to "<i class='bi bi-question-circle'></i> FAQ's".html_safe, faqs_page_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
         </ul>
       </div>
     </div>
