@@ -5,7 +5,9 @@ class PagesController < ApplicationController
     @users = User.lawyer.first(4)
   end
 
-  def about; end
+  def about
+    @gallery_images = GalleryImage.all
+  end
 
   def contact; end
 
