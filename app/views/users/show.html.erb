@@ -16,7 +16,7 @@
         <%= image_tag(@user.user_avatar, class: 'rounded-circle user-profile-pic shadow-sm')%>
       </div>
       <div class="align-self-center">
-        <div class="d-flex flex-wrap"><span class="fw-bold fs-large"><%= @user.name %> </span>
+        <div class="d-flex flex-wrap"><span class="fw-bold fs-1"><%= @user.name %> </span>
           <% if @user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check-fill"></i> Verified</span> <% end %>
         </div>
         <div><span class="fw-semibold">Joined: </span>

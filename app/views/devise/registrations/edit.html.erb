@@ -18,9 +18,17 @@
         </div>
       </div>
 
-      <div class="col-md field">
-        <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
-        <%= f.file_field :avatar,class: 'form-control mb-3 rounded-0', accept:'image/*' %>
+      <div class="row">
+        
+        <div class="col-md field">
+          <%= f.label :phone_number, class: 'form-label text-muted' %><br />
+          <%= f.telephone_field :phone_number, class: 'form-control mb-3 rounded-0', required: true %>
+        </div>
+
+        <div class="col-md field">
+          <%= f.label :profile_picture, class: 'form-label text-muted' %><br />
+          <%= f.file_field :avatar, class: 'form-control mb-3 rounded-0', accept:'image/*' %>
+        </div>
       </div>
 
       <% if resource.role == 'lawyer' %>
@@ -62,6 +70,7 @@
                       <div data-quill-target="quillEditor"></div>
                       <%= summary.hidden_field :description, id: "user-description", required: true %>
                     </div>
+                    <div class="fs-14px text-secondary mt-3">Note: The uploaded pictures will only be visible to our administrative team and will be used solely for verification purposes.</div>
                   </div>
                 </div>
               </div>

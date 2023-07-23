@@ -55,7 +55,6 @@ user_summary_attributes = proc do
   row('District') { |user| user.user_summary.district }
   row('Tehsil Bar') { |user| user.user_summary.tehsil_bar }
   row('Description') { |user| user.user_summary.description.html_safe }
-  row('User Profile') { |user| image_tag user.user_avatar, width: 100, height: 80 }
   row('User Id Card') { |user| image_tag user.user_summary.id_card, width: 100, height: 80 }
   row('User Bar Concil Card') { |user| image_tag user.user_summary.bar_concil_card, width: 100, height: 80 }
   row('Verified at') { |user| user.user_summary.verified_at }
@@ -65,8 +64,10 @@ show_block = proc do
   show do
     attributes_table do
       row :name
-      instance_eval(&user_summary_attributes) if user.user_summary.present?
+      row :email
+      row :phone_number
       row('User Profile') { |user| image_tag user.user_avatar, width: 100, height: 80 }
+      instance_eval(&user_summary_attributes) if user.user_summary.present?
       row :services if user.lawyer?
       row :created_at
     end
@@ -87,6 +88,7 @@ form_block = proc do
         t.input :verified_at
       end
       f.input :role
+      f.input :phone_number
       f.input :avatar, as: :file, label: 'Profile Picture'
       f.input :id_card, as: :file, label: 'ID Card Picture'
       f.input :bar_concil_card, as: :file, label: 'Bar-concil Card Picture'
@@ -96,7 +98,7 @@ form_block = proc do
 end
 
 ActiveAdmin.register User do
-  permit_params :name, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district,
+  permit_params :name, :phone_number, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district,
     tehsil_bar verified_at id_card bar_concil_card _destroy]
   instance_eval(&index_block)
   instance_eval(&filter_block)
