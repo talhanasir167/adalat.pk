@@ -36,6 +36,14 @@
   .res-pad {
     font-weight: normal !important;
   }
+
+  .sticky-form {
+    display: none;
+  }
+
+  .sticky-search-form {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 991px) { 

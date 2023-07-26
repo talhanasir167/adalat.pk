@@ -6,13 +6,13 @@
 .nav-avatar {
   width: 2.6rem;
   height: 2.6rem;
+  object-fit: contain;
 }
 
 .user-profile-pic {
   width: 10rem;
   height: 10rem;
-  max-height: 10rem;
-  max-width: 100%;
+  object-fit: contain;
 }
 
 .w-fill-available {

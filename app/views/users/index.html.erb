@@ -15,8 +15,8 @@
 </div>
 
 <div class="row mx-0">
-  <div class="offset-md-1 col-md-4">
-    <div class="transparent-bg3 p-5 rounded-2 mb-4">
+  <div class="col-md-4 sticky-search-form">
+    <div class="transparent-bg3 p-3vw rounded-2 mb-4">
       <div class="fw-bold text-center gredient-text">Search Lawyers</div>
       <%= form_with url: search_users_path, method: :post do |form| %>
         <div class="field mb-3">
@@ -35,7 +35,7 @@
       <% end %>
     </div>
   </div>
-  <div class="col-md-7">
+  <div class="col-md-8">
     <div class="mx-lg-5 mx-2" id="users-list">
       <%= render  @users %>
     </div>
