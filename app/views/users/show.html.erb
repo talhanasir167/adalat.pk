@@ -91,8 +91,8 @@
       </div>
       <% if @user.services.count > 4 %>
         <div class="text-end"> 
-          <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more-services">Read More</a>
-          <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less-services">Read Less</a>
+          <a href="/" class="text-decoration-none fs-14px" data-action="users#read_more" id="read-more-services">See More <i class="bi bi-chevron-down"></i></a>
+          <a href="/" class="text-decoration-none d-none fs-14px" data-action="users#read_less" id="read-less-services">See Less <i class="bi bi-chevron-up"></i></a>
         </div>
       <% end %>
     </div>
