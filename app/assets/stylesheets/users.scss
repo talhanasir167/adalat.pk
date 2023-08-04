@@ -37,6 +37,11 @@
   overflow: hidden;
 }
 
+.read-less-services {
+  height: 163px;
+  overflow: hidden;
+}
+
 .read-more {
   height: auto;
 }
@@ -123,4 +128,9 @@
   background-image: linear-gradient(to right, #D3A86C 0%, #B98D59  51%, #9D7147  100%);
   box-shadow: 0 0 10px #eee;
   color: white !important;
+}
+
+.w-10rem {
+  width: 10rem;
+  text-align: center;
 }

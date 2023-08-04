@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="mt-3" data-controller="users">
+    <div class="mt-3" data-controller="users" data-users-type-value="description">
       <div class="read-less" id="short-description"><%= @user.user_summary&.description&.html_safe %></div>
       <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more">Read More</a>
       <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less">Read Less</a>
@@ -77,18 +77,24 @@
       </div>
     <% end %>
 
-    <div>
+    <div data-controller="users" data-users-type-value="services">
       <div class="fw-bold fs-5">Services</div>
       <div class="mt-1"><%= @user.name %> specializes in the following services and procedures</div>
-      <div class="flex-d justify-content-start my-3">
+      <div class="flex-d justify-content-start my-3 read-less-services" id="short-services">
         <% @user.services.each do |service| %>
           <div class="p-3 transparent-bg3 rounded">
             <div class="text-center"><%= add_style(service.icon, ' fs-1 gredient-text').html_safe %></div>
-            <div class="fw-semibold gredient-text"><%= service.name %></div>
-            <div class="text-end fs-5 gredient-text"><i class="bi bi-arrow-right"></i></div>
+            <div class="fw-semibold gredient-text w-10rem"><%= service.name %></div>
+            <div class="text-end fs-5 gredient-text"><a href="/services/<%= service.id%>"><i class="bi bi-arrow-right"></i></a></div>
           </div>
         <% end %>
       </div>
+      <% if @user.services.count > 4 %>
+        <div class="text-end"> 
+          <a href="/" class="text-decoration-none" data-action="users#read_more" id="read-more-services">Read More</a>
+          <a href="/" class="text-decoration-none d-none" data-action="users#read_less" id="read-less-services">Read Less</a>
+        </div>
+      <% end %>
     </div>
 
     <div>
