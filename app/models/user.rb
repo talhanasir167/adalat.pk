@@ -48,6 +48,6 @@ class User < ApplicationRecord
   def prepend_adv_to_name
     return unless name.present? && !name.downcase.start_with?('adv.', 'advocate', 'adv')
 
-    self.name = "Advocate #{name}"
+    self.name = "Adv. #{name}"
   end
 end
