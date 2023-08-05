@@ -3,6 +3,6 @@ class UserMailer < ApplicationMailer
     @user = user
     @user_profile = "#{ENV['RAILS_APP_URL']}users/#{user.id}"
 
-    mail(to: @user.email, subject: 'Law Firm: Account Verification')
+    mail(to: @user.email, subject: 'Adalat.pk: Account Verification')
   end
 end

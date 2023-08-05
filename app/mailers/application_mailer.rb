@@ -1,8 +1,8 @@
 class ApplicationMailer < ActionMailer::Base
   if Rails.env.production?
-    default from: 'Law Firm <usman.zulfiqar065@gmail.com>'
+    default from: 'Adalat.pk <usman.zulfiqar065@gmail.com>'
   else
-    default from: 'Law Firm Testing <usman.zulfiqar065@gmail.com>'
+    default from: 'Adalat.pk Testing <usman.zulfiqar065@gmail.com>'
   end
   layout 'mailer'
 
