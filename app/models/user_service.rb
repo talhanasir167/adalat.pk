@@ -3,7 +3,7 @@ class UserService < ApplicationRecord
   belongs_to :service
 
   LEVELS = {
-    beginner: 0,
+    fresh_law_graduate: 0,
     intermediate: 1,
     advanced: 2,
     expert: 3,

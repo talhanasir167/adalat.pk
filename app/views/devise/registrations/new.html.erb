@@ -100,9 +100,15 @@
                     <%= summary.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3 rounded-0' %>
                   </div>
                 </div>
-                <div class="field">
-                  <%= summary.label :tehsil_bar, class: 'form-label text-muted' %>
-                  <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", required: true, placeholder: "Tehsil Bar" %>
+                <div class="row">
+                  <div class="col-md field">
+                    <%= summary.label :tehsil_bar, class: 'form-label text-muted' %>
+                    <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", required: true, placeholder: "Tehsil Bar" %>
+                  </div>
+                  <div class="col-md field">
+                    <%= summary.label :legal_practitioner_category, class: 'form-label text-muted' %><br />
+                    <%= summary.select :lawyer_type, humanize_keys(UserSummary::LAWYER_TYPES), {}, class: "form-select rounded-0" %>
+                  </div>
                 </div>
               </div>
             </div>
@@ -127,7 +133,7 @@
                       <div class="col-md field">
                         <%= service.label :service_proficiency, class: 'form-label text-muted' %><br />
                         <div class="d-flex">
-                          <%= service.select :service_proficiency, UserService::LEVELS.keys, {}, class: 'form-select rounded-0' %>
+                          <%= service.select :service_proficiency, humanize_keys(UserService::LEVELS), {}, class: 'form-select rounded-0' %>
                         </div>
                       </div>
                     </div>

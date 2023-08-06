@@ -55,6 +55,7 @@ user_summary_attributes = proc do
   row('District') { |user| user.user_summary.district }
   row('Tehsil Bar') { |user| user.user_summary.tehsil_bar }
   row('Description') { |user| user.user_summary.description.html_safe }
+  row('Lawyer Type') { |user| user.user_summary.lawyer_type.humanize }
   row('User Id Card') { |user| image_tag user.user_summary.id_card, width: 100, height: 80 }
   row('User Bar Concil Card') { |user| image_tag user.user_summary.bar_concil_card, width: 100, height: 80 }
   row('Verified at') { |user| user.user_summary.verified_at }
@@ -81,11 +82,13 @@ form_block = proc do
       f.has_many :user_summary, heading: 'User details', new_record: false do |t|
         t.input :qualification
         t.input :experience
-        t.input :description, as: :quill_editor, input_html: { data: { options: { modules: { toolbar: instance_eval(&tollbar_block) }, placeholder: 'User description...', theme: 'snow' } } }
+        t.input :description, as: :quill_editor,
+                              input_html: { data: { options: { modules: { toolbar: instance_eval(&tollbar_block) }, placeholder: 'User description...', theme: 'snow' } } }
         t.input :province
         t.input :district
         t.input :tehsil_bar
         t.input :verified_at
+        t.input :lawyer_type
       end
       f.input :role
       f.input :phone_number
@@ -98,8 +101,8 @@ form_block = proc do
 end
 
 ActiveAdmin.register User do
-  permit_params :name, :phone_number, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district,
-    tehsil_bar verified_at id_card bar_concil_card _destroy]
+  permit_params :name, :phone_number, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district
+                                                                                  lawyer_type tehsil_bar verified_at id_card bar_concil_card _destroy]
   instance_eval(&index_block)
   instance_eval(&filter_block)
   instance_eval(&scope_block)
