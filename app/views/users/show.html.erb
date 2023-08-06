@@ -19,6 +19,11 @@
         <div class="d-flex flex-wrap"><span class="fw-bold fs-1"><%= @user.name %> </span>
           <% if @user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check-fill"></i> Verified</span> <% end %>
         </div>
+        <% if !@user.user_summary&.fresh_law_graduate? %>
+          <div class="fs-14px">
+            <%= @user.user_summary.lawyer_type.titleize %>
+          </div>
+        <% end %>
         <div><span class="fw-semibold">Joined: </span>
           <span class="fs-small" > <%= distance_of_time_in_words(@user.created_at, DateTime.now) %> ago</span>
         </div>

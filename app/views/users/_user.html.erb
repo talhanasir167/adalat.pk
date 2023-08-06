@@ -6,7 +6,7 @@
         <span class="fw-bold fs-2"><%= user.name %></span>
         <% if user.user_summary&.verified_at.present? %><span class="badge btn-gold ms-3 align-self-center"><i class="bi bi-patch-check"></i> Verified Lawyer</span> <% end %>
       </div>
-      <% unless user.user_summary&.fresh_law_graduate? %>
+      <% if !user.user_summary&.fresh_law_graduate? %>
         <div class="fs-14px">
           <%= user.user_summary.lawyer_type.titleize %>
         </div>
