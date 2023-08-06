@@ -7,7 +7,7 @@
   </div>
   <div class="position-relative bg-white mx-auto text-center p-3 float-div">
     <div class="fw-bold"><%= user.name%></div>
-    <% unless user.user_summary.fresh_law_graduate? %>
+    <% unless user.user_summary&.fresh_law_graduate? %>
       <div class="fw-light fs-14px"><%= user.user_summary.lawyer_type.titleize %></div>
     <% end %>
     <div><%= link_to 'Contact Now', user, class: 'gredient-text fs-14px' %></div>
