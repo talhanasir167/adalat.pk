@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_22_233849) do
     t.string "province", default: "", null: false
     t.string "district", default: "", null: false
     t.string "tehsil_bar", default: "", null: false
+    t.integer "lawyer_type", default: 0, null: false
     t.datetime "verified_at"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false

@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validate :validate_user_services_uniqueness, on: :create
 
-  before_validation :prepend_adv_to_name, on: %i[create update]
+  before_validation :prepend_adv_to_name, on: %i[create update], if: :add_advocate?
 
   ROLES = {
     lawyer: 0,
@@ -46,8 +46,11 @@ class User < ApplicationRecord
   end
 
   def prepend_adv_to_name
-    return unless name.present? && !name.downcase.start_with?('adv.', 'advocate', 'adv')
+    self.name = name.downcase.gsub('adv.', '').gsub('advocate', '').gsub('adv', '').strip.titleize
+    self.name = "Adv. #{name}" if user_summary.fresh_law_graduate?
+  end
 
-    self.name = "Adv. #{name}"
+  def add_advocate?
+    user_summary.present?
   end
 end

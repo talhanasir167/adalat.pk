@@ -18,4 +18,13 @@ module PagesHelper
   def services_page?(controller)
     controller == 'services' && 'active'
   end
+
+  def humanize_keys(keys)
+    keys.map do |k|
+      k = k.to_a
+      k[1] = k[0].to_s
+      k[0] = k[0].to_s.titleize
+      k
+    end
+  end
 end

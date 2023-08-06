@@ -7,6 +7,7 @@ class CreateUserSummaries < ActiveRecord::Migration[7.0]
       t.string :province,           null: false, default: ''
       t.string :district,           null: false, default: ''
       t.string :tehsil_bar,         null: false, default: ''
+      t.integer :lawyer_type, null: false, default: 0
       t.datetime :verified_at
       t.references :user, null: false, foreign_key: true
       t.timestamps
