@@ -130,6 +130,8 @@ GEM
     formtastic (4.0.0)
       actionpack (>= 5.2.0)
     formtastic_i18n (0.7.0)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     has_scope (0.8.1)
@@ -326,6 +328,7 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
+  friendly_id (~> 5.4.0)
   importmap-rails
   jbuilder
   pg (~> 1.1)
