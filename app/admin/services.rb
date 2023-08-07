@@ -61,6 +61,18 @@ form_block = proc do
   end
 end
 
+find_resource_block = proc do
+  controller do
+    def find_resource
+      if resource_class.is_a?(FriendlyId)
+        scoped_collection.friendly.find(params[:id])
+      else
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
+end
+
 ActiveAdmin.register Service do
   permit_params :name, :description, :avatar, :icon, :summary
 
@@ -68,4 +80,5 @@ ActiveAdmin.register Service do
   instance_eval(&filter_block)
   instance_eval(&show_block)
   instance_eval(&form_block)
+  instance_eval(&find_resource_block)
 end
