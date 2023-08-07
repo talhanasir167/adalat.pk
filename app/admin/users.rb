@@ -100,6 +100,18 @@ form_block = proc do
   end
 end
 
+find_resource_block = proc do
+  controller do
+    def find_resource
+      if resource_class.is_a?(FriendlyId)
+        scoped_collection.friendly.find(params[:id])
+      else
+        scoped_collection.find(params[:id])
+      end
+    end
+  end
+end
+
 ActiveAdmin.register User do
   permit_params :name, :phone_number, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district
                                                                                   lawyer_type tehsil_bar verified_at id_card bar_concil_card _destroy]
@@ -108,4 +120,5 @@ ActiveAdmin.register User do
   instance_eval(&scope_block)
   instance_eval(&show_block)
   instance_eval(&form_block)
+  instance_eval(&find_resource_block)
 end

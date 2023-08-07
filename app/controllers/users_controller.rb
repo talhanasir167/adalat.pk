@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     set_contact_params
     if verify_contact_params
       send_contact_mail
-      flash.now[:notice] = 'Thank you for using Law Firm, We will come back to you soon!'
+      flash.now[:notice] = 'Thank you for using Adalat.pk, We will come back to you soon!'
       handle_successful_admin_contact
     else
       handle_contact_failure
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
     @lawyer = User.find(params[:user_id]) if params[:user_id].present?
     if verify_contact_params
       send_contact_mail
-      flash.now[:notice] = 'Thank you for using Law Firm, We will come back to you soon!'
+      flash.now[:notice] = 'Thank you for using Adalat.pk, We will come back to you soon!'
       handle_successful_lawyer_contact
     else
       handle_contact_failure
@@ -57,7 +57,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.friendly.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     redirect_to '/404'
   end
