@@ -2,7 +2,7 @@
   <div id="error_explanation" data-turbo-cache="false">
     <ul class="text-danger">
       <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <li><%= message.gsub('User summary', '').strip.capitalize %></li>
       <% end %>
     </ul>
   </div>

@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :name, :email, :phone_number, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :avatar, presence: { message: "(Profile picture) can't be blank!" }, on: :create
   validate :validate_user_services_uniqueness, on: :create
 
   before_validation :prepend_adv_to_name, on: %i[create update], if: :add_advocate?

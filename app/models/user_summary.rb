@@ -1,6 +1,7 @@
 class UserSummary < ApplicationRecord
   validates :qualification, :description, :experience, :province,
             :lawyer_type, :district, :tehsil_bar, presence: true
+  validates :id_card, :bar_concil_card, presence: true, on: :create
 
   belongs_to :user
   has_one_attached :id_card
