@@ -1,10 +1,11 @@
 <footer class="text-center footer-bg text-lg-start border-top">
   <div class="container p-4 text-white">
-    <div class="row">
-      <div class="col-md-2">
+    <div class="row text-start">
+      <div class="col-md-2 text-center text-lg-start">
         <a class="navbar-brand" href="/"><%= image_tag 'logo.png', class: 'logo mb-4' %></a>
       </div>
       <div class="col-md-4">
+        <div class="fw-semibold mb-3">CONTACT US</div>
         <ul class="nav flex-column">
           <li class="nav-item mb-2 hover-animation"><i class="bi bi-telephone-fill me-2"></i> 
             <span class="fw-lighter"><a href="tel:+92 317-0730531" class="text-decoration-none text-white">+92 317 0730531</a></span></li>
@@ -17,16 +18,16 @@
       <div class="col-md-3">
         <div class="fw-semibold mb-3">PAGES</div>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-house-door"></i> Home'.html_safe, root_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-tags"></i> Services'.html_safe, services_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-house-door"></i> Home'.html_safe, root_path, class: "text-decoration-none fw-lighter fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-tags"></i> Services'.html_safe, services_path, class: "text-decoration-none fw-lighter fs-14px text-white" %></li>
         </ul>
       </div>
       <div class="col-md-3">
         <div class="fw-semibold mb-3">ABOUT US</div>
         <ul class="nav flex-column">
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-info-circle"></i> ABOUT US'.html_safe, about_page_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-envelope-fill"></i> CONTACT US'.html_safe, contact_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
-          <li class="nav-item mb-2 hover-animation"><%= link_to "<i class='bi bi-question-circle'></i> FAQ's".html_safe, faqs_page_path, class: "text-decoration-none fw-normal fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-info-circle"></i> ABOUT US'.html_safe, about_page_path, class: "text-decoration-none fw-lighter fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to '<i class="bi bi-envelope-fill"></i> CONTACT US'.html_safe, contact_path, class: "text-decoration-none fw-lighter fs-14px text-white" %></li>
+          <li class="nav-item mb-2 hover-animation"><%= link_to "<i class='bi bi-question-circle'></i> FAQ's".html_safe, faqs_page_path, class: "text-decoration-none fw-lighter fs-14px text-white" %></li>
         </ul>
       </div>
     </div>
