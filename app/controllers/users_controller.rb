@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @similar_users = User.joins(:services).where(services: { id: @user.services.ids }).where.not(id: @user.id)
+    @similar_users = User.joins(:services).where(services: { id: @user.services.ids }).where.not(id: @user.id).uniq
   end
 
   def verify
@@ -89,7 +89,8 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.update('contact-page', partial: 'users/guest_user_contact_form', locals: { user_id: @lawyer&.id }),
+          turbo_stream.update('contact-page', partial: 'users/guest_user_contact_form',
+                                              locals: { user_id: @lawyer&.id }),
           turbo_stream.prepend('body_tag', partial: 'shared/toast')
         ]
       end
