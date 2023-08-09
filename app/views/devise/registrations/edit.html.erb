@@ -54,11 +54,11 @@
                     <div class="row">
                       <div class="col-md field">
                         <%= summary.label :qualification, class: 'form-label text-muted' %><br />
-                        <%= summary.text_field :qualification, placeholder: 'LLM', required: true, class: 'form-control mb-3 rounded-0' %>
+                        <%= summary.text_field :qualification, placeholder: 'LLM',class: 'form-control mb-3 rounded-0' %>
                       </div>
                       <div class="col-md field">
                         <%= summary.label :experience, class: 'form-label text-muted' %><em class="text-muted">(in years)</em><br />
-                        <%= summary.number_field :experience, placeholder: '5 Years', required: true, step: 0.5, class: 'form-control mb-3 rounded-0' %>
+                        <%= summary.number_field :experience, placeholder: '5 Years', step: 0.5, class: 'form-control mb-3 rounded-0' %>
                       </div>
                     </div>
                     <div class="row">
@@ -76,7 +76,7 @@
                     <div class="field" data-controller="quill">
                       <%= summary.label :description, class: 'form-label text-muted' %>
                       <div data-quill-target="quillEditor"></div>
-                      <%= summary.hidden_field :description, id: "user-description", required: true %>
+                      <%= summary.hidden_field :description, id: "user-description" %>
                     </div>
                     <div class="fs-14px text-secondary mt-3">Note: The uploaded pictures will only be visible to our administrative team and will be used solely for verification purposes.</div>
                   </div>
@@ -98,13 +98,13 @@
 
                       <div class="col-md field">
                         <%= summary.label :district, class: 'form-label text-muted' %><br />
-                        <%= summary.text_field :district, placeholder: 'Lahore', required: true, class: 'form-control mb-3 rounded-0' %>
+                        <%= summary.text_field :district, placeholder: 'Lahore', class: 'form-control mb-3 rounded-0' %>
                       </div>
                     </div>
                     <div class="row">
                       <div class="col-md field">
                         <%= summary.label :tehsil_bar, class: 'form-label text-muted' %>
-                        <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", required: true, placeholder: "Tehsil Bar" %>
+                        <%= summary.text_field :tehsil_bar,class: "form-control mb-3 rounded-0", placeholder: "Tehsil Bar" %>
                       </div>
                       <div class="col-md field">
                         <%= summary.label :legal_practitioner_category, class: 'form-label text-muted' %><br />
