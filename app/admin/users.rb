@@ -79,6 +79,7 @@ form_block = proc do
   form do |f|
     f.inputs do
       f.input :name
+      f.input :email
       f.has_many :user_summary, heading: 'User details', new_record: false do |t|
         t.input :qualification
         t.input :experience
@@ -95,6 +96,8 @@ form_block = proc do
       f.input :role
       f.input :phone_number
       f.input :avatar, as: :file, label: 'Profile Picture'
+      f.input :password
+      f.input :password_confirmation
     end
     f.actions
   end
