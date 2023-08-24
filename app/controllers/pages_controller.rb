@@ -2,7 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!
   def home
     @services = Service.first(3)
-    @users = User.lawyer.first(4)
+    @lawyers = User.lawyer.first(4)
+    @administrators = User.administrator.first(4)
   end
 
   def about

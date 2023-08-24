@@ -17,7 +17,8 @@ class User < ApplicationRecord
     lawyer: 0,
     client: 1,
     admin: 2,
-    owner: 3
+    owner: 3,
+    administrator: 4,
   }.freeze
 
   enum role: ROLES

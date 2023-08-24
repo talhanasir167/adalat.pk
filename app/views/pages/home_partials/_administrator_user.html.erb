@@ -1,0 +1,15 @@
+<div class="hover-transition">
+  <div class="position-relative">
+    <%= image_tag user.user_avatar, class: 'size-19rem grayscale' %>
+    <% if user.user_summary&.verified_at.present? %>
+      <i class="bi bi-award gredient-text fs-1 position-absolute right-1rem"></i>
+    <% end %>
+  </div>
+  <div class="position-relative bg-white mx-auto text-center p-3 float-div">
+    <div class="fw-bold"><%= user.name%></div>
+    <div class="fw-light fs-14px">
+      Administrator @ Adalat.pk
+    </div>
+    <div><%= link_to 'Contact Now', user_path(user.friendly_id), class: 'gredient-text fs-14px' %></div>
+  </div>
+</div>

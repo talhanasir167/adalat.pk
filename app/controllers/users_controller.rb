@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[show verify]
 
   def index
-    @users = User.lawyer
+    @users = User.lawyer + User.administrator
   end
 
   def show
