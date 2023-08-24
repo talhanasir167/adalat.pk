@@ -96,8 +96,8 @@ form_block = proc do
       f.input :role
       f.input :phone_number
       f.input :avatar, as: :file, label: 'Profile Picture'
-      f.input :password
-      f.input :password_confirmation
+      f.input :password unless user.persisted?
+      f.input :password_confirmation unless user.persisted?
     end
     f.actions
   end
