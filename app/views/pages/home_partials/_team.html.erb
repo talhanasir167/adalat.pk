@@ -22,7 +22,10 @@
     </div>
 
     <div class="flex-d mt-5">
-      <%= render partial: 'pages/home_partials/team_member', collection: @users, as: :user %>
+      <%= render partial: 'pages/home_partials/team_member', collection: @lawyers, as: :user %>
+    </div>
+    <div class="flex-d mt-5">
+      <%= render partial: 'pages/home_partials/administrator_user', collection: @administrators, as: :user %>
     </div>
   </div>
 </div>
