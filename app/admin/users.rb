@@ -116,7 +116,7 @@ find_resource_block = proc do
 end
 
 ActiveAdmin.register User do
-  permit_params :name, :phone_number, :avatar, :role, user_summary_attributes: %i[id qualification experience description province district
+  permit_params :name, :email, :role, :password, :password_confirmation, :phone_number, :avatar, user_summary_attributes: %i[id qualification experience description province district
                                                                                   lawyer_type tehsil_bar verified_at id_card bar_concil_card _destroy]
   instance_eval(&index_block)
   instance_eval(&filter_block)
