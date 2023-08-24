@@ -89,12 +89,12 @@ form_block = proc do
         t.input :tehsil_bar
         t.input :verified_at
         t.input :lawyer_type
+        t.input :id_card, as: :file, label: 'ID Card Picture'
+        t.input :bar_concil_card, as: :file, label: 'Bar-concil Card Picture'
       end
       f.input :role
       f.input :phone_number
       f.input :avatar, as: :file, label: 'Profile Picture'
-      f.input :id_card, as: :file, label: 'ID Card Picture'
-      f.input :bar_concil_card, as: :file, label: 'Bar-concil Card Picture'
     end
     f.actions
   end
